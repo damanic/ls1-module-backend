@@ -1,0 +1,66 @@
+/*
+ * Header
+ */
+
+#header ul.site_links li.view_site
+{
+	background-position: right 5px;
+}
+
+/*
+ * Simple list - list
+ */
+
+ul.checkboxes li input
+{
+	margin-top: 0!important;
+	float: none!important;
+}
+
+ul.checkboxes li
+{
+	margin-left: -3px!important;
+}
+
+div.hint p.hide input
+{
+	margin-top: 2px!important;
+}
+
+/*
+ * Forms
+ */
+
+div.form ul.formElements li.radio input,
+div.form ul.formElements li.checkboxlist input
+{
+	margin-left: 0!important;
+	margin-top: 1px!important;
+}
+
+/*
+ * Date picker
+ */
+
+div.form li.date .datePickerHolder .datePickerWrapper
+{
+	margin-top: 1px;
+}
+
+/*
+ * Interval selector
+ */
+
+.interval_selector .control_panel
+{
+	height: 1.9em!important;
+}
+
+/*
+ * Resource manager
+ */
+
+ul.fileList li input
+{
+	top: 3px!important;
+}

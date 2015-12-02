@@ -206,3 +206,4 @@
 #1.9.27 Added new API event: backend:onControllerInit
 #1.9.28 Minor improvements in the Administration Area UI
 #1.9.29 Added new configuration parameter: FORCE_ADMIN_SSL
+#1.10.0 Start community updates. Fixed tab render issue in chrome -webkit

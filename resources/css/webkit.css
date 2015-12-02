@@ -1,0 +1,146 @@
+/*
+ * Header
+ */
+
+#header ul.site_links li.view_site
+{
+	background-position: right 5px;
+}
+
+/*
+ * Forms
+ */
+
+[disabled] 
+{
+	color: #666!important;
+}
+
+div.form ul.formElements li.checkbox input
+{
+	top: 1px!important;
+}
+
+div.form ul.formElements li.preview div.checkbox
+{
+	top: 0.3em!important;
+}
+
+div.hint p.hide input
+{
+	margin-top: 2px!important;
+}
+
+div.button_separator
+{
+	height: 2.2em;
+}
+
+div.button > .lb,
+div.button > .rb,
+div.button > .rt,
+div.button > .lt
+{
+	display: none!important;
+}
+
+div.button > a
+{
+	-webkit-border-radius: 3px;
+/*	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);*/
+}
+
+div.button.menu_visible > a
+{
+	-webkit-border-bottom-right-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-bottom: 1px solid rgba(0,0,0,0);
+	-webkit-box-shadow: none;
+}
+
+div.button.menu_visible ul .rb,
+div.button.menu_visible ul .lb
+{
+	display: block!important;
+}
+
+div.button.menu ul .rb,
+div.button.menu ul .lb
+{
+	display: none;
+}
+
+/*
+ * Date picker
+ */
+
+div.form li.date .datePickerHolder .datePickerWrapper
+{
+	margin-top: -1px!important;
+}
+
+.datePickerSliderConainer
+{
+	padding: 9px!important;
+}
+
+/*
+ * Interval selector
+ */
+
+.interval_selector .control_panel
+{
+	height: 1.9em!important;
+}
+
+/*
+ * Resource manager
+ */
+
+ul.fileList li input
+{
+	top: 4px!important;
+	left: 4px!important;
+}
+
+/*
+ * Image lists
+ */
+
+ul.imageItemList li:hover
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#e6e6e6), color-stop(1, #e6e6e6));
+}
+
+/*
+ * Selectable list
+ */
+
+ul.selectable_list li a:hover
+{
+	background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#e6e6e6), color-stop(1, #e6e6e6));
+}
+
+/*
+ * Scrollable toolbar
+ */
+
+.scrollable_control_panel .scroll_left
+{
+	background-position: 5px 8px;
+}
+
+.scrollable_control_panel .scroll_left.disabled
+{
+	background-position: -23px 8px;
+}
+
+.scrollable_control_panel .scroll_right
+{
+	background-position: -10px 8px;
+}
+
+.scrollable_control_panel .scroll_right.disabled
+{
+	background-position: -41px 8px;
+}

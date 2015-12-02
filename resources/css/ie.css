@@ -1,0 +1,540 @@
+/*
+ * Layout - content
+ */
+
+.lt, .rt, .lb, .rb
+{
+/*	background-image: none!important;*/
+}
+
+#footer
+{
+}
+
+fieldset.ie_fix
+{
+	padding: 0;
+	margin: 0;
+	border: none!important;
+}
+
+#header li a 
+{
+	border: none!important;
+	text-decoration: underline!important;
+}
+
+h3.separated
+{
+	position: relative;
+}
+
+div.hint p.hide input
+{
+	float: none!important;
+	margin-left: -5px!important;
+}
+
+div.hint p.hide label
+{
+	float: none!important;
+	margin-left: 0!important;
+}
+
+div.clear
+{
+	line-height: 0!important;
+}
+
+.inline_block
+{
+	display: inline!important;
+}
+
+ul.breadcrumbs li a,
+ul.breadcrumbs li
+{
+	position: relative;
+}
+
+#header_tabs .top_shadow
+{
+	min-height: 35px;
+}
+
+#header_tabs p a
+{
+	padding-bottom: 3px!important;
+}
+
+.main_menu_wrapper .top_tabs li.top_tab
+{
+	padding: 8px 10px;
+	clear: both;
+	border-bottom: 1px dashed #EEE;
+}
+
+#module_tabs .main_menu_wrapper .subtabs li:hover
+{
+	background: #333;
+}
+/*
+ * Buttons
+ */
+
+div.button 
+{
+	line-height: 0!important;
+	position: relative!important;
+}
+
+div.button a
+{
+	line-height: 100%!important;
+	padding: 0.5em 0.5em;
+}
+
+#tabs .round .lt
+{
+	background-image: url(../images/ie/rnd_tab_lt.gif)!important;
+}
+
+#tabs li.active .lt
+{
+	background-image: url(../images/ie/rnd_tab_a_lt.gif)!important;
+}
+
+#tabs .round .rt
+{
+	background-image: url(../images/ie/rnd_tab_rt.gif)!important;
+	right: 0!important;
+}
+
+#tabs li.active .rt
+{
+	background-image: url(../images/ie/rnd_tab_a_rt.gif)!important;
+	right: 0!important;
+}
+
+/*
+ * Fix hint dimentions
+ */
+
+div.hint
+{
+	margin: 0!important;
+}
+
+div.hint_container
+{
+	margin-bottom:1.5em;
+	margin-top:-0.5em
+}
+
+/*
+ * Date picker
+ */
+
+* html div.form li.date .datePickerHolder .datePickerWrapper
+{
+	margin-right: 4px!important;
+}
+
+.datePickerSliderConainer
+{
+	padding: 9px!important;
+}
+
+
+div.datepicker td.datepickerSelected a
+{
+	color: white!important;
+	background: #136A9F!important;
+}
+
+div.datepicker a 
+{
+	color:#666666!important;
+}
+
+div.datepicker a:hover
+{
+	color: #fff!important;
+}
+
+td.datepickerNotInMonth a 
+{
+	color: #DDDDDD!important;
+}
+
+.datepickerGoNext,
+.datepickerGoPrev
+{
+	text-indent: 0!important;
+}
+
+.datepickerGoNext a, 
+.datepickerGoPrev a
+{
+	position: relative;
+	font-size: 25px!important;
+}
+
+/*
+ * Model log
+ */
+
+tr.update .modelChangesMap dd .version 
+{
+	width: 220px!important;
+}
+
+/*
+ * Forms
+ */
+
+div.form ul.formElements li.preview div.checkbox
+{
+	top: 7px!important;
+}
+
+* html div.form ul.formElements li.preview div.checkbox
+{
+	left: -20px;
+	top: 4px!important;
+	z-index: 10000;
+}
+
+div.form ul.formElements li.radio input,
+div.form ul.formElements li.checkbox input,
+div.form ul.formElements li.checkboxlist input
+{
+	margin-left: -2px!important;
+}
+
+div.form ul.formElements li.checkbox input
+{
+	margin-top: 0!important;
+}
+
+* html div.form ul.formElements li.checkbox input
+{
+	margin-top: 0!important;
+}
+
+div.form ul.formElements li.on_off_switcher
+{
+	position: relative;
+}
+
+div.form ul.formElements li.on_off_switcher div.fieldContainer
+{
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 60px!important;
+}
+
+div.form ul.formElements li.on_off_switcher div.fieldContainer div
+{
+	width: 60px!important;
+}
+
+div.form ul.formElements li.on_off_switcher label, 
+div.form ul.formElements li.on_off_switcher p.minorCommentAfter 
+{
+	float: none!important;
+}
+
+/*
+ * Form tabs
+ */
+
+.tabs .tabs_pages li 
+{
+	margin-top: -3px!important;
+}
+
+.tabs .tabs_tabs li 
+{
+	margin-top: 3px;
+}
+
+/*
+ * Requests
+ */
+
+th.request_state span, td.request_state span
+{
+	margin-left: 0.4em!important;
+}
+
+/*
+ * List setup
+ */
+
+ul.sortable li input
+{
+	margin-top: -3px!important;
+	padding: 0!important;
+	float: none!important;
+}
+
+div.listColumnsScroller
+{
+	height: auto!important;
+	padding-left: 0!important;
+	border: none!important;
+	overflow: visible!important;
+	margin-bottom: 1em!important;
+}
+
+.listSettings p.searchEnabled
+{
+	width: 17px;
+}
+
+/*
+ * Reports
+ */
+
+.interval_selector div.control_panel
+{
+	height: 2.4em!important;
+}
+
+* html .interval_selector div.control_panel
+{
+	height: 1.6em!important;
+}
+
+.interval_selector .calendar_button
+{
+	margin-top: 0.7em!important;
+}
+
+.datePickerWrapper div.picker_panel select
+{
+	float: left;
+}
+
+.datePickerWrapper div.picker_panel label
+{
+	margin-top: 5px;
+	float: left;
+}
+
+* html .interval_selector div.datePickerWrapper
+{
+	margin-right: -2px!important;
+}
+
+* html div.chart_container .handle
+{
+	line-height: 0!important;
+	font-size: 0!important;
+}
+
+.interval_selector a.trigger
+{
+	height: 43px!important;
+}
+
+.report_chart
+{
+	position: relative;
+}
+
+.ie_chart_site
+{
+}
+
+#report_records .listContainer
+{
+	margin-right: 15px;
+}
+
+/*
+ * Filters
+ */
+
+.filters .content 
+{
+	padding-top: 0.3em!important;
+}
+
+/*
+ * List search control
+ */
+
+div.searchControl input
+{
+	padding-top:3px;
+}
+
+/*
+ * List settings
+ */
+
+.embeddedList .listSettings 
+{
+	float: none;
+}
+
+/*
+ * Simple list
+ */
+
+.simpleList li
+{
+	float: none!important;
+	clear: both!important;
+}
+
+ul.checkboxes li input
+{
+	margin-top: -1px!important;
+}
+
+/*
+ * Row controls
+ */ 
+
+div.row_controls div.content
+{
+	position: relative;
+	padding-top: 6px;
+}
+
+div.row_controls div.content li
+{
+	float: none!important;
+	display: inline;
+	padding-top: 3px!important;
+	background-position: left top;
+}
+
+/*
+ * File browser
+ */
+
+div.filebrowser_container .icon_list li
+{
+	padding-top: 3px!important;
+	background-position: left 3px;
+}
+
+div.filebrowser_container .icon_list li.upload
+{
+	padding-top: 6px!important;
+}
+
+div.filebrowser_container .file_list li
+{
+	margin: 2px;
+	padding-bottom: 1px!important;
+}
+
+/*
+ * File list controls
+ */
+
+td.fileControls,
+th.fileControls
+{
+	width: 65px!important;
+	padding-left: 0!important;
+}
+
+td.fileControls a
+{
+	float: left!important;
+	margin-left: 5px;
+}
+
+/*
+ * Image links
+ */
+
+div.addFileLink
+{
+	background-position: left 2px!important;
+}
+
+p.addDocument 
+{
+	padding-left: 20px!important;
+	position: relative;
+	background-position: left 1px;
+}
+	
+
+/*
+ * Grid control
+ */
+
+div.form ul.formElements table.grid td, 
+div.form ul.formElements table.grid th 
+{
+	border-right: none!important;
+}
+
+/*
+ * Status transitions
+ */
+
+ul.status_transition li 
+{
+	margin-bottom: 1em!important;
+	position: relative;
+}
+
+/*
+ * HTML editor settings
+ */
+
+div.editor_buttons.right_controls
+{
+	position: relative!important;
+	top: -10px;
+}
+
+/*
+ * Filel list
+ */
+
+ul.fileList li input
+{
+	margin-top: -4px !important;
+}
+
+ul.fileList li input
+{
+	top: 4px!important;
+	left: -1px!important;
+}
+
+/*
+ * Price rule list
+ */
+
+ul.rule_list li.first div.top_connector
+{
+	display: none;
+}
+
+ul.rule_list li.last div.bottom_connector
+{
+	display: none;
+}
+
+/*
+ * Scrollable control panels
+ */
+
+.scrollable_control_panel div.toolbar a.imageLink,
+.scrollable_control_panel div.toolbar div.imageLink,
+.scrollable_control_panel div.toolbar div.separator
+{
+	display: inline;
+}

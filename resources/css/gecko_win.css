@@ -1,0 +1,15 @@
+/*
+ * Resource manager
+ */
+
+ul.fileList li input
+{
+	top: 4px!important;
+	left: 4px!important;
+}
+
+ul.filter_switchers li label
+{
+	position: relative;
+	top: -3px;
+}

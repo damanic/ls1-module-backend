@@ -1,0 +1,143 @@
+div.button a
+{
+/*	padding-top: 0.5em;*/
+}
+
+#header_tabs p a
+{
+/*	margin: 0.6em 0.5em 0.4em 1em;*/
+}
+
+/*
+ * Simple list - list
+ */
+
+div.form li.checkbox label
+{
+	margin-top: 0!important;
+}
+
+ul.checkboxes li input
+{
+	margin-top: 1px!important;
+}
+
+/*
+ * Date picker
+ */
+
+div.form li.date .datePickerHolder .datePickerWrapper
+{
+	margin-top: 1px;
+}
+
+.datePickerSliderConainer
+{
+	padding: 9px!important;
+}
+
+/*
+ * Forms
+ */
+
+.tabs .tabs_tabs li a 
+{
+}
+
+div.button > .lb,
+div.button > .rb,
+div.button > .rt,
+div.button > .lt
+{
+	display: none!important;
+} 
+
+div.button > a
+{
+	-moz-border-radius: 3px;
+/*	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);*/
+}
+
+div.button.menu_visible > a
+{
+	-moz-border-radius-bottomright: 0;
+	-moz-border-radius-bottomleft: 0;
+	border-bottom: 1px solid rgba(0,0,0,0);
+	-moz-box-shadow: none;
+}
+
+div.button.menu_visible ul .rb,
+div.button.menu_visible ul .lb
+{
+	display: block!important;
+}
+
+div.button.menu ul .rb,
+div.button.menu ul .lb
+{
+	display: none;
+}
+
+div.form ul.formElements li.preview div.checkbox 
+{
+	top: 4px;
+}
+
+div.form ul.formElements li.radio div label
+{
+	padding-top: 2px;
+}
+
+/*
+ * Search control
+ */
+
+div.searchControl input
+{
+/*	padding-top: 3px;*/
+}
+
+/*
+ * File browser
+ */
+
+div.filebrowser_container .file_list li a
+{
+	background-position: 5px 5px!important;
+}
+
+/*
+ * Filters
+ */
+
+.filters ul li
+{
+	background-position: left 2px;
+}
+
+/*
+ * Image lists
+ */
+
+ul.imageItemList li:hover
+{
+	background: -moz-linear-gradient(top, #f6f6f6, #e6e6e6);
+}
+
+/*
+ * Selectable list
+ */
+
+ul.selectable_list li a:hover
+{
+	background: -moz-linear-gradient(top, #f6f6f6, #e6e6e6);
+}
+
+/*
+ * Orders status list
+ */
+
+.order-status-icons span.status-icon 
+{
+	top: 10px!important;
+}

@@ -1,9 +1,10 @@
 @import "../../../../phproad/resources/css/common.less";
+
 @menu-border: 1px solid rgba(255,255,255,0.2);
 .selected-gradient {.vertical-gradient(#5791e0, #2865c1);}
 
 /* Layout and reset */
- 
+
 html {
 	font-size: 100%;
 	margin: 0;
@@ -17,13 +18,13 @@ body {
 	min-width: 700px;
 	background-color: white;
 	position: relative;
-	
+
 	&.no_bottom_offset #content {padding-bottom: 0!important;}
 	&.no_padding #content {
 		padding-left: 0!important;
 		padding-bottom: 0!important;
 		padding-right: 0!important;
-		
+
 		.success {
 			margin-left: 10px;
 			margin-right: 10px;
@@ -58,7 +59,7 @@ h2 {
 	font-weight: normal;
 	color: #333;
 	padding-bottom: 1em;
-	
+
 	&.separated {
 		background: transparent url('../images/border_h_dotted.gif') repeat-x left bottom;
 		margin-bottom: 1em;
@@ -68,19 +69,19 @@ h2 {
 			margin-top: -10px;
 		}
 	}
-	
+
 	&.report_header {border-bottom: 2px solid #666;}
-	
+
 	&.section-title {
 		background: transparent url(../images/section-separator-top.gif) repeat-x left top;
 		padding: 15px 0 10px 15px;
 		border-bottom: 1px solid #e2e2e2;
-		
+
 		&.first {
 			padding-top: 5px;
 			background: transparent;
 		}
-		
+
 		&.left {
 			padding-left: 0;
 		}
@@ -94,7 +95,7 @@ h3 {
 	font-weight: normal;
 	color: #333;
 	padding-bottom: 1em;
-	
+
 	&.separated {
 		background: transparent url('../images/border_h_dotted.gif') repeat-x left bottom;
 		margin-bottom: 0.3em;
@@ -109,7 +110,7 @@ h4 {
 	font-weight: bold;
 	color: #333;
 	padding-bottom: 0.5em;
-	
+
 	&.separated {
 		background: transparent url('../images/border_h_dotted.gif') repeat-x left bottom;
 		margin-bottom: 0.3em;
@@ -129,12 +130,12 @@ p {
 	color: #333;
 	padding-bottom: 1em;
 	line-height: 150%;
-	
+
 	&.last {
 		padding-bottom: 0;
 		margin-bottom: 0 !important;
 	}
-	
+
 	&.noData {
 		background: #eee;
 		color: #555;
@@ -146,7 +147,7 @@ p {
 	}
 
 	&.minor-comment {color: #666666;}
-	
+
 	&.toolbar_text {
 		float: left;
 		padding-top: 8px;
@@ -168,7 +169,7 @@ ul, li {
 
 a {
 	color: #336699;
-	
+
 	&:hover {
 		color: #19334d;
 
@@ -177,7 +178,7 @@ a {
 			color: #333;
 		}
 	}
-	
+
 	&.nolink {color: inherit;}
 
 }
@@ -275,7 +276,7 @@ div.pagination {
 	span.numbers {
 		color: #333;
 		font-size: 0;
-		
+
 		a, span {
 			font-size: 12px;
 			line-height: 100%;
@@ -285,7 +286,7 @@ div.pagination {
 			border-top: 1px solid #E6E6E6;
 			border-bottom: 1px solid #E6E6E6;
 			border-left: 1px solid #E6E6E6;
-			
+
 			&:last-child {
 				.border-radius-rb(2px);
 				.border-radius-rt(2px);
@@ -297,16 +298,16 @@ div.pagination {
 				.border-radius-lb(2px);
 				.border-radius-lt(2px);
 			}
-			
+
 			&:hover {
 				background-color: #eee;
 			}
-			
+
 			&.ellipsis:hover {
 				background-color: transparent;
 			}
 		}
-		
+
 		.current {
 			background-color: #eee!important;
 			color: #333!important;
@@ -324,7 +325,7 @@ div.pagination {
 	.rt {background-image: url('../images/rnd_rt.png');}
 	.lb {background-image: url('../images/rnd_lb.png');}
 	.rb {background-image: url('../images/rnd_rb.png');}
-	
+
 	.lt, .rt, .lb, .rb {
 		width: 3px;
 		height: 3px;
@@ -332,7 +333,7 @@ div.pagination {
 		background-repeat: no-repeat;
 		display: block;
 	}
-	
+
 	.lt {
 		left: 0;
 		top: 0;
@@ -362,13 +363,13 @@ div.pagination {
 
 #header {
 	background: transparent url('../images/header_bg.gif') repeat-x left top;
-	
+
 	.header_links {
 		float: right;
 		margin-top: 30px;
 		line-height: 100%;
 		font-size: 12px;
-		
+
 		.user_welcome {
 			float: left;
 			font-size: inherit;
@@ -377,13 +378,13 @@ div.pagination {
 			margin-right: 10px;
 			background: transparent url(../images/user_pic.png) no-repeat left center;
 		}
-		
+
 		#settings_link_container {
 			float: right;
 			margin-right: 10px;
 			outline: none;
 		}
-		
+
 		.settings_link {
 			float: right;
 			width: 20px;
@@ -395,9 +396,9 @@ div.pagination {
 			border-top: 1px solid rgba(0,0,0,0.01);
 			border-left: 1px solid rgba(0,0,0,0.01);
 			border-right: 1px solid rgba(0,0,0,0.01);
-			
+
 			&:hover {background-color: rgba(0,0,0,0.05);}
-			
+
 			&.active {
 				background-color: #2B5682!important;
 				background-position: 3px -57px;
@@ -407,14 +408,14 @@ div.pagination {
 				.outer-shadow(rgba(0, 0, 0, 0.2), -2px, 2px, 3px);
 			}
 		}
-		
+
 		#user_controls_wrapper {
 			position: absolute;
 			z-index: 1000002;
 			right: 10px;
 			top: 52px;
 			background-color: #2B5682;
-			
+
 			#user_menu_connector {
 				background: transparent;
 				border-top: 5px solid #2B5682;
@@ -426,20 +427,20 @@ div.pagination {
 				width: 30px;
 				display: none;
 			}
-			
+
 			&.active {
 				.outer-shadow(rgba(0, 0, 0, 0.2), -2px, 2px, 3px);
 				border: @menu-border;
-				
+
 				#user_menu_connector {
 					display: block;
 				}
 			}
-			
+
 			#user_controls {
 				li {
 					display: block;
-					
+
 					a {
 						display: block;
 						color: white;
@@ -447,7 +448,7 @@ div.pagination {
 						text-decoration: none;
 						border-bottom: 1px solid rgba(255,255,255,0.1);
 						border-top: 1px solid rgba(0,0,0,0);
-						
+
 						&.last { border-bottom: none; }
 						&:hover {
 							background: rgba(255,255,255,0.1);
@@ -457,7 +458,7 @@ div.pagination {
 							.selected-gradient;
 						}
 					}
-					
+
 					&.last {
 						a {
 							border-bottom: none;
@@ -469,16 +470,16 @@ div.pagination {
 				}
 			}
 		}
-		
+
 		.site_links {
 			float: left;
 			color: #666666;
 			margin-right: 10px;
 			clear: right;
-			
+
 			li.view_site {
 				float: right;
-				
+
 				a {
 					float: right;
 					background: transparent url(../images/store.png) no-repeat left center;
@@ -488,10 +489,10 @@ div.pagination {
 			}
 		}
 	}
-	
+
 	.container {
 		height: 76px;
-		
+
 		a {text-decoration: none;}
 	}
 
@@ -576,7 +577,7 @@ div.pagination {
 			text-decoration: none;
 			text-indent: -10000em;
 			outline: none;
-			
+
 			&:hover {background-color: rgba(255,255,255,0.2);}
 			&.active {
 				.outer-shadow(rgba(0,0,0,0.2), 2px, 2px, 3px);
@@ -584,7 +585,7 @@ div.pagination {
 			}
 		}
 	}
-	
+
 	.current_module_name {
 		float: left;
 		color: white!important;
@@ -594,7 +595,7 @@ div.pagination {
 		background: transparent url(../images/menu_module_arrow.png) no-repeat right 57%;
 		font-weight: normal;
 		margin-right: 10px;
-		
+
 		&.no_tabs {
 			background: transparent;
 			margin-right: 0;
@@ -615,7 +616,7 @@ div.pagination {
 			color: white;
 			outline: none;
 			text-decoration: none;
-			
+
 			:hover {background: transparent url(../images/tab_hover.png) repeat-x left top;}
 		}
 
@@ -670,7 +671,7 @@ div.pagination {
 	margin-right: 10px;
 	margin-top: 9px;
 	outline: none;
-	
+
 	&.on {background: transparent url(../images/fullscreen_off.png) no-repeat left top;}
 	&:hover {background-color: rgba(255,255,255,0.2);}
 }
@@ -678,8 +679,8 @@ div.pagination {
 #module_tabs_wrapper {
 	position: absolute;
 	z-index: 1000001;
-	
-	
+
+
 	.active-wrapper {overflow: visible!important;
 		.outer-shadow(rgba(0,0,0,0.4), 2px, 2px, 3px);
 	}
@@ -689,7 +690,7 @@ div.pagination {
 	float: left;
 	padding: 0;
 	position: relative;
-	
+
 	.main_menu_wrapper {
 		.subtabs li a {
 			font-size: 12px !important;
@@ -741,19 +742,19 @@ div.pagination {
 			text-shadow: -1px -1px 1px rgba(0,0,0,0.2);
 			display: block;
 		}
-		
+
 		ul.tab_groups li {
 			float: left;
 			margin-left: -4px;
 			margin-right: 8px;
 			background: transparent url(../images/tab_separator.png) no-repeat right 45%;
 			padding-right: 7px;
-			
+
 			&:last-child {
 				background-image: none;
 				padding-right: 0;
 			}
-			
+
 			a {
 				padding: 4px;
 				.round(2px);
@@ -793,7 +794,7 @@ div.pagination {
 			margin-right: 0;
 		}
 	}
-	
+
 	.module-notifications {
 		margin-top: 10px;
 		margin-bottom: 10px;
@@ -802,39 +803,39 @@ div.pagination {
 
 		li {
 			position: relative;
-			
+
 			&.no-link {padding: 5px 8px;}
-			
+
 			a {
 				display: block;
 				padding: 5px 8px;
 				.hide-border-radius();
-				
+
 				img {
 					outline: none;
 					border: none;
 				}
-				
+
 				&:hover {background-color: rgba(0,0,0,0.2);}
 			}
-			
-			
+
+
 			&:last-child {
 				margin-bottom: 0;
-				
+
 				a {
 					.border-radius-lb(4px);
 					.border-radius-rb(4px);
 				}
 			}
-			
+
 			&:first-child {
 				a {
 					.border-radius-lt(4px);
 					.border-radius-rt(4px);
 				}
 			}
-			
+
 			img {
 				float: left;
 				margin-right: 8px;
@@ -847,7 +848,7 @@ div.pagination {
 				color: white;
 				margin-top: 2px;
 			}
-			
+
 			a.close-notification {
 				position: absolute;
 				width: 10px;
@@ -858,7 +859,7 @@ div.pagination {
 				background: transparent url(../images/close-notification.png) no-repeat 3px 3px;
 				text-indent: -1000000em;
 				.opacity(70);
-				
+
 				&:hover {
 					background-color: rgba(0,0,0,0.2);
 					.round(4px);
@@ -881,22 +882,22 @@ div.pagination {
 					padding: 10px!important;
 					height: 16px;
 					line-height: 100%;
-					
+
 					&:hover {
 						background-color: #5791e0;
 						.selected-gradient;
 					}
 				}
-				
+
 				&:hover {
 					background-color: #5791e0;
 					.selected-gradient;
 					border-bottom: 1px solid rgba(0,0,0,0.6);
 					border-top: 1px solid #78aefb;
-					
+
 					> a {padding-top: 9px!important;}
 				}
-				
+
 				&:hover:last-child {
 					border-bottom: none;
 				}
@@ -908,7 +909,7 @@ div.pagination {
 					right: -250px;
 					width: 250px;
 					.outer-shadow(rgba(0,0,0,0.4), 2px, 2px, 3px);
-					
+
 					ul.subtabs {
 						margin: 0;
 						background: #373737;
@@ -930,14 +931,14 @@ div.pagination {
 								padding: 11px 10px 9px 10px!important;
 								height: 16px;
 								border-bottom: 1px solid rgba(255,255,255,0.1);
-							
+
 								&:hover {
 									border-bottom: 1px solid rgba(0,0,0,0.6);
 									border-top: 1px solid #78aefb;
 									padding-top: 10px!important;
 								}
 							}
-						
+
 							&:last-child {
 								a {
 									border-bottom: none!important;
@@ -952,26 +953,26 @@ div.pagination {
 						display: block;
 					}
 				}
-				
+
 				.module-notifications {
 					margin: 0;
 					background: transparent;
 					position: absolute;
 					right: 0;
 					top: 9px;
-				
+
 					li {
 						padding: 0;
 						a {
 							padding: 0!important;
-							
+
 							span {display: none;}
 							img {float: none;}
 							&:hover {
 								background: transparent;
 							}
 						}
-						
+
 						a.close-notification {display: none;}
 					}
 				}
@@ -994,12 +995,12 @@ div.pagination {
 		line-height: 170%;
 		font-size: 1.1em;
 		float: right;
-		
+
 		&.logo {text-align: right;}
 
 		a {color: #666;}
 	}
-	
+
 	a img {border: none;}
 
 	.footer_logo {
@@ -1007,7 +1008,7 @@ div.pagination {
 		margin-left: 13px;
 		float: left;
 	}
-	
+
 	#footer_custom_text {
 		float: left;
 		padding-left: 20px;
@@ -1030,7 +1031,7 @@ div.pagination {
 	-webkit-transition: all 0.3s linear;
 
 	/* Popup forms */
-	
+
 	.popupLoading {border: 1px solid #bbb;}
 
 	.popupForm {
@@ -1040,7 +1041,7 @@ div.pagination {
 		.outer-shadow(rgba(0,0,0,0.8), 0, 0, 15px);
 		border: 1px solid #bbb;
 		.padding-background-clip();
-		
+
 		h2 {
 			color: #333;
 			background: transparent url(../images/dotted_border_hor.gif) repeat-x scroll left bottom;
@@ -1050,7 +1051,7 @@ div.pagination {
 			padding: 9px 15px 8px 9px;
 			border-bottom: none;
 		}
-		
+
 		div.popup_content {
 			position: relative;
 			.round(10px);
@@ -1059,9 +1060,9 @@ div.pagination {
 			margin-bottom: 0;
 			.padding-background-clip();
 		}
-		
+
 		.critical_message {border: 3px solid #b10000 !important;}
-		
+
 		a.popup_close {
 			position: absolute;
 			width: 22px;
@@ -1106,7 +1107,7 @@ div.list_controlPanel {
 
 table.splitter {
 	table-layout: fixed;
-	
+
 	td {
 		&.splitter-separator {
 			width: 15px;
@@ -1116,13 +1117,13 @@ table.splitter {
 			cursor: move;
 			cursor: ew-resize;
 			position: static!important;
-			
+
 			&:hover {
 				background-repeat: repeat-y;
 				background-position: left top;
 			}
 		}
-		
+
 		div.form {
 			margin-bottom: 0!important;
 		}
@@ -1154,7 +1155,7 @@ div.button {
 		color: #555555;
 		background-color: #ddd;
 		text-shadow: 1px 1px 0 #eee;
-		
+
 		border-style: solid;
 		border-width: 1px;
 		border-color: #cccccc #cccccc #b3b3b3;
@@ -1163,9 +1164,9 @@ div.button {
 		.inner-outer-shadow(rgba(255,255,255,0.2), 0, 1px, 0, rgba(0,0,0,0.05), 0, 1px, 2px);
 		.text-shadow(rgba(255,255,255,0.75), 0, 1px, 1px);
 		outline: none;
-		
+
 		.round(3px);
-		
+
 		&:hover {
 			color: #333333;
 			filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -1189,7 +1190,7 @@ div.button {
 		width: 100%;
 		z-index: 1000;
 	}
-	
+
 	&.right {
 		float: right;
 		margin-right: 0;
@@ -1199,7 +1200,7 @@ div.button {
 	&.last {margin-right: 0;}
 	&:active a {.hide-shadow();}
 	&.default a {font-weight: bold!important;}
-	
+
 	.menu a:hover {background-color: #7f96ab;}
 }
 
@@ -1225,13 +1226,13 @@ a.large-image-button {
 	background-position: 8px center;
 	background-repeat: no-repeat;
 	.outer-shadow(rgba(40, 40, 40, 0.1), 1px, 1px, 0);
-	
+
 	&:hover, &:focus {
 		background-color: #3a74af;
 		color: white;
 		text-shadow: none !important;
 	}
-	
+
 	&.preview {background-image: url(../images/search_globe.png)}
 }
 
@@ -1288,7 +1289,7 @@ a.large-image-button {
 
 		a {text-decoration: underline;}
 	}
-	
+
 	.clear-fix;
 	&:after { .clear-fix-after; }
 }
@@ -1301,16 +1302,16 @@ a.large-image-button {
 ul.filter_switchers li {
 	min-height: 15px;
 	padding-bottom: 2px!important;
-	
+
 	&:last-child {padding-bottom: 0!important;}
-	
+
 	div.checkbox {
 		float: left;
 		margin-left: -3px;
 		width: 12px;
 		height: 12px;
 	}
-	
+
 	label {
 		float: left;
 		margin: 2px 0 0 5px;
@@ -1321,7 +1322,7 @@ ul.filter_switchers li {
 
 div.form {
 	margin-bottom: 1em;
-	
+
 	ul.formElements {
 		li {
 			&.offsetTop {margin-top: 10px;}
@@ -1331,25 +1332,25 @@ div.form {
 				.round(4px);
 				.outer-shadow(#ddd, 2px 2px 3px);
 			}
-			
+
 			h4 {padding-top: 8px;}
-			
+
 			&.checkboxlist {
 				div.option {
 					position: relative;
 
-					div.checkbox { 
-						position: absolute; 
+					div.checkbox {
+						position: absolute;
 						top: 3px;
 					}
 				}
-				
+
 				&:last-child {margin-bottom: 4px;}
 			}
-			
+
 			&.checkbox:last-child {margin-bottom: 4px;}
 		}
-		
+
 		table.simpleList {
 			border-left: 1px solid #ddd;
 			border-right: 1px solid #ddd;
@@ -1361,7 +1362,7 @@ div.form {
 
 		.form_field,
 		li.text input,
-		li.password input, 
+		li.password input,
 		li.date input.date,
 		li.datetime input.datetime,
 		input.form_text_field,
@@ -1371,7 +1372,7 @@ div.form {
 			border-color: #AAA!important;
 			.round(3px);
 		}
-		
+
 		li.code_editor {
 			.fieldContainer {
 				.code_editor_wrapper {
@@ -1394,7 +1395,7 @@ div.form {
 								height: 30px;
 							}
 						}
-						
+
 						.code_editor_toolbar {
 							position: absolute;
 							right: 0;
@@ -1404,7 +1405,7 @@ div.form {
 							padding: 3px;
 							.border-radius(1px, 0, 3px, 0);
 							.opacity(0);
-							
+
 							li {
 								margin: 0;
 								.round(1px);
@@ -1412,16 +1413,16 @@ div.form {
 						}
 					}
 				}
-				
+
 				&.fullscreen {
 					.code_editor_wrapper {
 						border: none!important;
 						.round(0);
-						
+
 						.code_wrapper {
 							pre {
 								.ace_scroller {.hide-shadow();}
-								
+
 								.ace_gutter {
 									.hide-border-radius();
 								}
@@ -1431,19 +1432,19 @@ div.form {
 				}
 			}
 		}
-		
+
 		li.checkbox div.checkbox {
 			position: absolute;
 			top: 3px;
 		}
-		
+
 	}
-	
+
 	div.form-collapsable-area {
 		margin: -10px -12px 10px -10px;
 		border-bottom: 3px solid rgba(0,0,0,0.2);
 		position: relative;
-		
+
 		&:before {
 			content: "";
 			border-bottom: 1px solid rgba(255,255,255,0.5);
@@ -1459,7 +1460,7 @@ div.form {
 			padding: 10px 12px 5px 10px;
 			background-color: rgba(0,0,0,0.05);
 		}
-		
+
 		.collapse-control {
 			position: absolute;
 			display: block;
@@ -1474,10 +1475,10 @@ div.form {
 			cursor: pointer;
 			.border-radius(0, 3px, 3px, 0);
 		}
-		
+
 		&.collapsed {
 			.form-collapsable-area-content {display: none;}
-			
+
 			.collapse-control {
 				background-position: 4px -115px;
 			}
@@ -1489,7 +1490,7 @@ div.form {
 		padding-bottom: 10px;
 		margin-bottom: 10px;
 	}
-	
+
 	.CodeMirror-line-numbers {.border-radius(3px, 0, 0, 3px);}
 	.code_editor_footer {.border-radius(0, 0, 3px, 3px);}
 }
@@ -1501,7 +1502,7 @@ div.form ul.formElements li.text input.search {
 	padding: 5px 6px 6px 23px;
 	border: 1px solid #AAAAAA;
 	.inner-shadow(rgba(0, 0, 0, 0.2), 1px, 1px, 1px);
-	
+
 	&:focus {
 	 	border-color: #0099ce;
 		outline: none;
@@ -1517,19 +1518,19 @@ div.checkbox {
 	.round(2px);
 	background: white url(../images/controls.png) no-repeat 0 -36px;
 	.padding-background-clip;
-	
+
 	&.disabled {
 		border-color: #ccc!important;
 		.opacity(50);
 		cursor: default;
-		
+
 		&.checked {
 			background-position: -1px -17px;
 		}
 	}
-	
+
 	&.checked {background-position: -1px -2px;}
-	
+
 	&:focus {
 	 	border-color: #0099ce;
 		outline: none;
@@ -1543,7 +1544,7 @@ div.checkbox {
 }
 
 table.simpleList {
-	td.checkbox, 
+	td.checkbox,
 	th.checkbox {
 		div.checkbox {
 			float: left;
@@ -1551,7 +1552,7 @@ table.simpleList {
 			margin-left: 2px;
 		}
 	}
-} 
+}
 
 ul.checkboxes li {
 	div.checkbox {
@@ -1578,13 +1579,13 @@ a.imageLink, div.imageLink {
 	margin-top: 1em;
 	margin-right: 1em;
 	outline: none;
-	
+
 	&.disabled {
 		color: #999;
 		text-decoration: none;
 		cursor: default;
 	}
-	
+
 	&.right {
 		float: right;
 		margin-right: 0!important;
@@ -1640,7 +1641,7 @@ div.toolbar {
 	.round(3px);
 	padding: 5px 7px;
 	margin-bottom: 15px;
-	
+
 	.imageLink:hover, .imageLink.hold:hover {
 		.round(3px);
 		background-color: #3a74af;
@@ -1664,7 +1665,7 @@ div.toolbar {
 		font: normal 12px @font-2;
 		margin-right: 5px;
 		-webkit-transition: background-color 0.1s linear;
-		
+
 		&.last {margin-right:0;}
 
 		a {
@@ -1733,7 +1734,7 @@ div.toolbar {
 			a:hover {.border-radius(0, 3px, 3px, 0);}
 		}
 	}
-	
+
 	span.caption_indicator {
 		display: inline-block;
 		padding: 1px 4px;
@@ -1745,9 +1746,9 @@ div.toolbar {
 		font-weight: bold;
 		margin-left: 2px;
 	}
-	
+
 	/* Toolbar buttons */
-	
+
 	.refresh {background: transparent url('../images/arrow_refresh.png') no-repeat 5px 4px;}
 	.new_document {background: transparent url('../images/page_white_add.png') no-repeat 5px 4px;}
 	.new_text_document {background: transparent url('../images/page_text_add.png') no-repeat 5px 4px;}
@@ -1788,21 +1789,21 @@ div.toolbar {
 	.help {background: transparent url('../images/help.png') no-repeat 5px 4px;}
 	.table_gear {background: transparent url('../images/table_gear.png') no-repeat 5px 4px;}
 	.picture_add {background: transparent url('../images/picture_add.png') no-repeat 5px 4px;}
-	
+
 	div.button {
 		margin-top: 0;
 		margin-right: 0!important;
-		
+
 		a {
 			background: transparent!important;
 			color: #555555!important;
 			border: none;
 			.hide-shadow();
-			
+
 			&:active {
 				color: #555555;
 			}
-			
+
 			&:hover {
 				background-color: #3a74af!important;
 				color: white!important;
@@ -1810,7 +1811,7 @@ div.toolbar {
 			}
 		}
 	}
-	
+
 	div.form {
 		margin: 0;
 		float: left;
@@ -1819,7 +1820,7 @@ div.toolbar {
 			float: right;
 			height: 24px;
 		}
-		
+
 		.search {
 			width: 150px;
 			.round(20px);
@@ -1832,13 +1833,13 @@ div.toolbar {
 
 .ui-popup-container {
 	.toolbar {margin-top: 0!important;}
-	
+
 	.form {margin-bottom: 0!important;}
 }
 
 .ui-popup-header {
 	position: relative;
-	
+
 	.toolbar {
 		position: absolute;
 		right: 5px;
@@ -1846,7 +1847,7 @@ div.toolbar {
 		margin-bottom: 0!important;
 		padding: 0!important;
 		background: transparent!important;
-		
+
 		a {
 			text-indent: -100000em;
 			padding: 4px 4px 4px 21px !important;
@@ -1874,7 +1875,7 @@ li.field div.toolbar.read_only_table {
 	background: #eeeeee;
 	margin-bottom: 10px;
 	.round(3px);
-	
+
 	.scroll_left:hover, .scroll_right:hover {
 		background-color: #ddd;
 		.round(2px);
@@ -1884,7 +1885,7 @@ li.field div.toolbar.read_only_table {
 		float: left;
 		margin-bottom: 0;
 		white-space: nowrap;
-		
+
 		a.imageLink, div.imageLink {
 			margin-right: 1px;
 			display: inline-block;
@@ -1909,7 +1910,7 @@ li.field div.toolbar.read_only_table {
 		padding-right: 7px;
 
 		a.listSetup:hover {background-color: #ccc;}
-		
+
 		.search {
 			font-size: 11px;
 			.round(20px);
@@ -1934,17 +1935,17 @@ li.field div.toolbar.read_only_table {
 
 	.scroll_left {
 		background: transparent url(../images/scroll_buttons.png) no-repeat 5px 9px;
-		
+
 		&.disabled {background: transparent url(../images/scroll_buttons.png) no-repeat -23px 9px;}
 	}
-	
+
 	.scroll_right {
 		background: transparent url(../images/scroll_buttons.png) no-repeat -10px 9px;
 		margin-left: 0;
-		
+
 		&.disabled {background: transparent url(../images/scroll_buttons.png) no-repeat -41px 9px;}
 	}
-	
+
 	div.scroll_area {
 		overflow: hidden;
 		float: left;
@@ -1986,7 +1987,7 @@ div.scrollableList {
 		margin-bottom: 0 !important;
 		padding: 0 !important;
 	}
-	
+
 	&.padding {padding: 5px;}
 	&.code {background: #fff !important;}
 
@@ -1994,76 +1995,76 @@ div.scrollableList {
 		padding: 5px;
 		border-width: 2px;
 	}
-	
+
 	&.noBorders {border: none !important;}
 	&.thickBorder {
 		border-width: 2px;
 		.round(4px);
 	}
-	
+
 	&.height-400 {height: 400px;}
-	
+
 	.noData {
 		.hide-border-radius();
 	}
 }
 
 .ui-scrollable-panel {
-	.viewport {  
+	.viewport {
 		overflow: hidden;
-		position: relative; 
+		position: relative;
 		height: 200px;
 		background: #f9f9f9;
 	}
-	
-	.overview { 
-		list-style: none; 
-		position: absolute; 
-		left: 0; 
-		top: 0; 
+
+	.overview {
+		list-style: none;
+		position: absolute;
+		left: 0;
+		top: 0;
 		width: 100%;
 	}
-	
-	.scrollbar { 
-		position: relative; 
-		float: right; 
-		width: 0; 
-		
-		.track { 
-			height: 100%; 
-			width: 4px; 
-			position: relative; 
-			padding: 0 1px; 
-			right: -2px;
-			
-			.thumb { 
-				background-color: #888; 
 
-				height: 20px; 
+	.scrollbar {
+		position: relative;
+		float: right;
+		width: 0;
+
+		.track {
+			height: 100%;
+			width: 4px;
+			position: relative;
+			padding: 0 1px;
+			right: -2px;
+
+			.thumb {
+				background-color: #888;
+
+				height: 20px;
 				width: 3px;
 				cursor: pointer;
 				overflow: hidden;
 				position: absolute;
-				top: 0; 
+				top: 0;
 				.round(2px);
 				.opacity(0.3);
 
-				.end { 
+				.end {
 					overflow: hidden;
 					height: 5px;
-					width: 3px; 
+					width: 3px;
 				}
-				
+
 				&:hover,
 				&.drag {
 					.opacity(100);
-					background-color: #888!important; 
+					background-color: #888!important;
 				}
 			}
 		}
 
 		&.disable {
-			display: none; 
+			display: none;
 		}
 	}
 }
@@ -2072,7 +2073,7 @@ div.scrollableList {
 
 .ui-autocomplete {
 	background: white;
-	position: absolute; 
+	position: absolute;
 	cursor: default;
 }
 
@@ -2082,9 +2083,9 @@ div.scrollableList {
 	margin: 0;
 	display:block;
 	float: left;
-	
+
 	.ui-menu {margin-top: -3px;}
-	
+
 	.ui-menu-item {
 		margin:0;
 		padding: 0;
@@ -2092,14 +2093,14 @@ div.scrollableList {
 		float: left;
 		clear: left;
 		width: 100%;
-		
+
 		a {
 			text-decoration:none;
 			display:block;
 			padding:.2em .4em;
 			line-height:1.5;
 			zoom:1;
-			
+
 			&.ui-state-hover,
 			&.ui-state-active {
 				font-weight: normal;
@@ -2168,7 +2169,7 @@ div.scrollableList {
 		color: white !important;
 		text-decoration: none;
 		font-size: 1.1em;
-		
+
 		&:hover {background-color: #cc9933;}
 	}
 
@@ -2199,7 +2200,7 @@ div.scrollableList {
 				margin-left: -5px;
 				text-decoration: none;
 				outline: none;
-				
+
 				&:hover {
 					background: #3e99ca !important;
 					color: white !important;
@@ -2235,7 +2236,7 @@ div.scrollableList {
 
 ul.imageItemList {
 	padding-bottom: 15px;
-	
+
 	&.list-section {
 		padding-left: 10px;
 		padding-right: 10px;
@@ -2256,16 +2257,16 @@ ul.imageItemList {
 			float: left;
 			margin: 0 1em 0.7em 0;
 		}
-		
+
 		.image-container {
 			margin: 0 1em 0.7em 0;
 			float: left;
 			height: 48px;
 			position: relative;
-			
+
 			img {margin: 0;}
 		}
-		
+
 		&.unread .image-container .badge {
 			background: transparent url(../images/unread-settings-item.png) left top no-repeat;
 			position: absolute;
@@ -2315,10 +2316,10 @@ ul.imageItemList {
 			a {background: #336699 !important;}
 		}
 	}
-	
+
 	.tab_separator {border-color: #336699 !important;}
-	.tabs_pages { 
-		ol.simpleList li {display: list-item;} 
+	.tabs_pages {
+		ol.simpleList li {display: list-item;}
 	}
 }
 
@@ -2326,18 +2327,18 @@ li.form_page {
 	padding: 10px 12px 5px 10px;
 	background: #edf8f8;
 	.border-radius(0, 5px, 5px, 0);
-	
+
 	&.fullsize {
 		padding: 0!important;
 		background: transparent;
 	}
-	
-	.defaultSkin table, 
+
+	.defaultSkin table,
 	div.form_page .defaultSkin table {
 		background: #edf8f8 !important;
 	}
 
-	.defaultSkin .mceButton, 
+	.defaultSkin .mceButton,
 	div.form_page .defaultSkin .mceButton {
 		border-color: #edf8f8 !important;
 	}
@@ -2412,7 +2413,7 @@ table.name_value_list {
 		text-align: right;
 		color: #333333;
 		border-right: 1px solid #ddd;
-		
+
 		&.align-middle {vertical-align: middle;}
 	}
 }
@@ -2430,9 +2431,9 @@ table.name-value-report {
 	line-height: 150%;
 	text-align: left;
 	.text-shadow(rgba(255, 255, 255, 0.8), 1px, 1px, 1px);
-	
+
 	&.title-width-80 th { width: 80px; }
-	
+
 	th {
 		padding-right: 10px;
 		vertical-align: top;
@@ -2440,7 +2441,7 @@ table.name-value-report {
 		color: #8b8b8b;
 		font-weight: normal;
 	}
-	
+
 	td {
 		vertical-align: top;
 		color: #333333;
@@ -2484,44 +2485,44 @@ div.tooltip {
 }*/
 
 .tipsy {
-	font-family: Arial,'Helvetica','Liberation Sans'; 
-	font-size: 11px; 
-	position: 
-	absolute; 
-	padding: 5px; 
-	z-index: 100000; 
-	
-	.tipsy-inner { 
-		background-color: #000; 
-		color: #FFF; 
-		padding: 5px 8px 5px 8px; 
-		text-align: left; 
+	font-family: Arial,'Helvetica','Liberation Sans';
+	font-size: 11px;
+	position:
+	absolute;
+	padding: 5px;
+	z-index: 100000;
+
+	.tipsy-inner {
+		background-color: #000;
+		color: #FFF;
+		padding: 5px 8px 5px 8px;
+		text-align: left;
 		.round(3px);
 	}
-	
-	.tipsy-arrow { 
-		position: absolute; 
-		width: 0; 
-		height: 0; 
-		line-height: 0; 
+
+	.tipsy-arrow {
+		position: absolute;
+		width: 0;
+		height: 0;
+		line-height: 0;
 		border: 5px
-		dashed #000; 
+		dashed #000;
 	}
-	
+
 	.tipsy-arrow-n { border-bottom-color: #000; }
 	.tipsy-arrow-s { border-top-color: #000; }
 	.tipsy-arrow-e { border-left-color: #000; }
 	.tipsy-arrow-w { border-right-color: #000; }
 }
 
-.tipsy-n .tipsy-arrow { 
-	top: 0px; 
-	left: 50%; 
-	margin-left: -5px; 
-	border-bottom-style: solid; 
-	border-top: none; 
-	border-left-color: transparent; 
-	border-right-color: transparent; 
+.tipsy-n .tipsy-arrow {
+	top: 0px;
+	left: 50%;
+	margin-left: -5px;
+	border-bottom-style: solid;
+	border-top: none;
+	border-left-color: transparent;
+	border-right-color: transparent;
 }
 
 .tipsy-nw .tipsy-arrow {
@@ -2674,7 +2675,7 @@ table.layoutTable {
 		padding-bottom: 3px!important;
 		padding-left: 8px;
 		background: transparent url(../images/bullet_small.gif) no-repeat left 0.5em;
-		
+
 		&.tab_page {
 			background: none;
 			padding-bottom: 12px!important;
@@ -2750,7 +2751,7 @@ div.hint {
 	position: relative;
 	.round(4px);
 	color: #9E7D45;
-	
+
 	&.bottom-margin-form {margin-bottom: 10px;}
 
 	p {
@@ -2762,7 +2763,7 @@ div.hint {
 			font-weight: normal;
 			color: #624D2A;
 		}
-		
+
 		&.last {padding-bottom: 0;}
 	}
 
@@ -2777,7 +2778,7 @@ div.hint {
 		position: absolute;
 		text-indent: -100000em;
 	}
-	
+
 	&.control_hint {
 		margin-top: 18px;
 		padding-bottom: 5px;
@@ -2865,15 +2866,15 @@ table.simpleList {
 
 		div.content {
 			white-space: nowrap;
-			
+
 			ul {
 				display: block;
-			
+
 				li {
 					display: block!important;
 					position: relative!important;
 
-					a { 
+					a {
 						.outer-shadow(rgba(0,0,0,0.5), 0, 0, 3px);
 						color: #ccc!important;
 						text-decoration: none!important;
@@ -2893,7 +2894,7 @@ table.simpleList {
 						text-align: left!important;
 						min-width: 80px;
 						text-indent: 0!important;
-						
+
 						span {
 							font-weight: normal!important;
 							text-align: right
@@ -2911,17 +2912,17 @@ table.simpleList {
 						z-index: 100;
 					}
 
-					&:hover  { 
+					&:hover  {
 						a {
 							background-color: #27689b;
 							color: white!important;
 						}
-						
+
 						.handle {
 							background: transparent url(../images/popup_menu_indicator.png) no-repeat left -12px;
 						}
 					}
-					
+
 					&:first-child a {
 						.border-radius-lt(3px);
 						.border-radius-rt(3px);
@@ -2932,7 +2933,7 @@ table.simpleList {
 						.border-radius-lb(3px);
 						border-bottom: none;
 					}
-					
+
 					&.default a {
 						font-weight: bold!important;
 						color: white!important;
@@ -2940,16 +2941,16 @@ table.simpleList {
 						background-repeat:  no-repeat;
 						background-position: right center!important;
 					}
-				}	
+				}
 			}
 		}
-	}	
+	}
 
 	tbody td.bool span {
 		background-image: none !important;
 		margin: 0 !important;
 	}
-	
+
 	tbody td.read_only {
 		background: #f6f6f6 !important;
 	}
@@ -3035,21 +3036,21 @@ ul.selectable_list li {
 			color: #666;
 			font-size: 11px;
 		}
-		
+
 		&:hover {
 			background-color: #eee;
 			.selected-gradient;
 			border-bottom: 1px solid rgba(0,0,0,0.6);
 			text-shadow: -1px -1px 1px rgba(0,0,0,0.2);
 			color: white;
-			
+
 			span.description {
 				color: #BBD8E0;
 				text-shadow: none;
 			}
 		}
 	}
-	
+
 	&.last {
 		background-image: none;
 		padding-bottom: 0;
@@ -3091,7 +3092,7 @@ ul.simple_tree {
 	border-top: 2px solid #666;
 
 	ul.simple_tree {border-top: none;}
-	
+
 	li {
 		.tree_branch {
 			font: normal 11px/150% @font-1;
@@ -3105,7 +3106,7 @@ ul.simple_tree {
 				margin-left: 5px;
 			}
 		}
-		
+
 		&.drag .tree_branch {background-color: #f9f8d7 !important;}
 
 		.title {
@@ -3172,7 +3173,7 @@ div.backend_scroller_container {
 	}
 }
 
-div.outer_scroller div.backend_scroller_container, 
+div.outer_scroller div.backend_scroller_container,
 div.outer_scroller div.backend_scroller_container div.backend_scroller {
 	background-color: transparent;
 	border: none;
@@ -3186,7 +3187,7 @@ div.outer_scroller div.backend_scroller_container div.backend_scroller {
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;
 	background: transparent url(../images/checker_bg.gif) repeat;
-	
+
 	.v_slider:hover, .v_slider.active {
 		opacity: 1;
 		-moz-transform: scale(1.3,1);
@@ -3233,11 +3234,11 @@ table.print_table {
 	font: normal 13px/130% @font-1;
 	color: #333333;
 	margin-bottom: 15px;
-	
+
 	tr.even {
 		background-color: #f5f5f5;
 	}
-	
+
 	th.number, td.number {
 		text-align: right;
 	}
@@ -3267,7 +3268,7 @@ table.print_table {
 
 	tbody {
 		border-bottom: 1px solid #555;
-		
+
 		th, td {
 			font-size: 12px;
 			border-top: 1px solid #ddd;
@@ -3287,7 +3288,7 @@ table.print_table {
 			font-weight: bold;
 		}
 	}
-	
+
 	&:last-child {margin-bottom: 0;}
 
 	&.totals {
@@ -3335,7 +3336,7 @@ div.print_sheet {
 	padding-bottom: 15px;
 	margin-bottom: 15px;
 	page-break-inside: avoid;
-	
+
 	&.no_page_breaks {
 		page-break-after: avoid !important;
 		border-bottom: 1px dotted #333333 !important;
@@ -3382,7 +3383,7 @@ span.rating_stars {
 
 ul.sidebar-selector {
 	padding-right: 15px;
-	
+
 	li {
 		div {
 			padding: 0 10px 0 4px;
@@ -3392,7 +3393,7 @@ ul.sidebar-selector {
 			background-position: right 50%;
 			.border-radius(0, 0, 5px, 5px);
 		}
-		
+
 		a {
 			display: block;
 			padding: 10px;
@@ -3404,26 +3405,26 @@ ul.sidebar-selector {
 			outline: none;
 			white-space: nowrap;
 		}
-		
+
 		&.current,
 		&.current.drag {
 			div {background-color: #336699!important;}
 			a {color: white;}
 		}
-		
+
 		&:hover div {background-color: #eee;}
 		&.drag div {background-color: #eee!important;}
-		
+
 		&.separated {
 			margin-top: 10px;
 			padding-top: 8px;
 			border-top: 1px dotted #ccc;
 		}
-		
+
 		&.hide-selector a {
 			background: transparent url(../images/hide_sidebar_selector.png) no-repeat 11px 12px;
 		}
-		
+
 		&.no-arrow div {
 			.round(5px);
 			background-image: none;
@@ -3431,7 +3432,7 @@ ul.sidebar-selector {
 	}
 }
 
-/* 
+/*
  * Order status marker
  */
 
@@ -3493,7 +3494,7 @@ p.description span.order_status_marker {
 			text-overflow: ellipsis;
 		}
 	}
-	
+
 	a {
 		display: block;
 		position: absolute;
@@ -3506,7 +3507,7 @@ p.description span.order_status_marker {
 		.border-radius(2px, 0, 0, 0);
 		text-indent: -100000em;
 		.padding-background-clip;
-		
+
 		span {
 			display: block;
 			margin-top: 9px;
@@ -3537,16 +3538,16 @@ p.description span.order_status_marker {
 	margin: 4px 0 0 10px;
 	text-indent: -100000em;
 	.padding-background-clip;
-	
+
 	span {
 		display: block;
 		height: 100%;
 		background: url(../images/input-tool-icons.png) no-repeat -33px center;
 	}
-	
+
 	&:hover {
 		.selected-gradient;
-		
+
 		span {background-position: -1px center;}
 	}
 }
@@ -3574,7 +3575,7 @@ p.description span.order_status_marker {
 	border-bottom: 1px solid #dddddd;
 	position: relative;
 	.outer-shadow(rgba(255, 255, 255, 0.8), 0, 1px, 0);
-	
+
 	&:after {
 		display: block;
 		width: 26px;
@@ -3586,13 +3587,13 @@ p.description span.order_status_marker {
 		left: 15px;
 		bottom: -15px;
 	}
-	
+
 	p {
 		color: #666666;
 		font-size: 12px;
 		padding-bottom: 5px;
 	}
-	
+
 	h3 {
 		color: #333333;
 		font-size: 19px;
@@ -3622,7 +3623,7 @@ div.inline_details {
 	border: 1px solid #E6E6E6;
 	background: #f6f6f6;
 	.round(4px);
-	
+
 	table {
 		border-collapse: collapse;
 		border: none;
@@ -3645,7 +3646,7 @@ div.inline_details {
 				border-right: none;
 			}
 		}
-		
+
 		th {
 			background-color: #eee;
 			color: #666666;
@@ -3665,11 +3666,11 @@ div.inline_details {
 
 .joyride-content-wrapper {
 	padding: 0!important;
-	
+
 	h3 {
 		padding-bottom: 15px;
 	}
-	
+
 	p {
 		color: white;
 		line-height: 150%!important;
@@ -3692,13 +3693,13 @@ div.inline_details {
 
 .webkit {
 	#header ul.site_links li.view_site {background-position: right 5px;}
-	
+
 	.main_menu_wrapper {
 		.top_tabs li.top_tab {
 			ul.tab_groups li { background-position: right 50%; }
 		}
 	}
-	
+
 	div.form {
 		ul.formElements {
 			li.checkbox div.checkbox {top: 2px;}
@@ -3707,17 +3708,17 @@ div.inline_details {
 			li.date .datePickerHolder .datePickerWrapper {margin-top: -1px!important;}
 		}
 	}
-	
+
 	ul.filter_switchers li {
 		label {margin-top: 1px;}
 	}
-	
+
 	div.hint p.hide input {margin-top: 2px!important;}
-	
+
 	[disabled] {color: #666!important;}
 
 	.datePickerSliderConainer {padding: 9px!important;}
-	
+
 	.scrollable_control_panel {
 		.scroll_left {
 			background-position: 5px 8px;
@@ -3727,11 +3728,11 @@ div.inline_details {
 
 		.scroll_right {
 			background-position: -10px 8px;
-			
+
 			&.disabled {background-position: -41px 8px;}
 		}
 	}
-	
+
 	.form, .secondary_tabs {
 		.tabs {
 			.tabs_tabs li {
@@ -3740,7 +3741,7 @@ div.inline_details {
 
 				//-webkit-mask: url(../images/tab-mask-inactive-right.png) no-repeat right top, url(../images/tab-mask-inactive-left.png) no-repeat left top;
 				//-webkit-mask-composite: xor, source-over;
-			
+
 				//margin-left: -20px;
 				//.border-radius-lt(0);
 				//.border-radius-rt(0);
@@ -3773,7 +3774,7 @@ div.inline_details {
 			}
 		}
 	}
-	
+
 	.secondary_tabs {
 		.tabs {
 			.tabs_tabs li.active:first-child {
@@ -3783,7 +3784,7 @@ div.inline_details {
 			}
 		}
 	}
-	
+
 	&.chrome {
 		table.simpleList {
 			div.row_controls {
@@ -3797,10 +3798,10 @@ div.inline_details {
 			}
 		}
 	}
-	
+
 	h2.section-title {
 		padding-top: 11px;
-		
+
 		&.first {
 			padding-top: 1px;
 		}
@@ -3811,26 +3812,26 @@ div.inline_details {
 	div.form {
 		li.checkbox label {margin-top: 0!important;}
 		li.date .datePickerHolder .datePickerWrapper {margin-top: 1px;}
-		ul.formElements 
+		ul.formElements
 		{
 			li.preview div.checkbox {top: 3px;}
 			li.radio div label {padding-top: 2px;}
 		}
 	}
-	
+
 	ul.checkboxes li input {margin-top: 1px!important;}
 	.datePickerSliderConainer {padding: 9px!important;}
-	
+
 	div.filebrowser_container .file_list li a {background-position: 5px 6px!important;}
 	.filters ul li {background-position: left 2px;}
-	
+
 	&.win {
 		ul.filter_switchers li label {
 			position: relative;
 			top: -2px;
 		}
 	}
-	
+
 	table.simpleList {
 		div.row_controls {
 			div.content {
@@ -3842,12 +3843,12 @@ div.inline_details {
 			}
 		}
 	}
-	
+
 	p.success, div.success,
 	p.error, div.error {
 		padding-bottom: 10px;
 	}
-	
+
 	div.toolbar {
 		div.form {
 			.search {
@@ -3855,13 +3856,13 @@ div.inline_details {
 			}
 		}
 	}
-	
+
 	.scrollable_control_panel {
 		.listSettings {
 			.search {margin-top: -3px;}
 		}
 	}
-	
+
 	&.control_hint {
 		margin-top: 16px;
 		padding-bottom: 5px;

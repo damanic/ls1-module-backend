@@ -1,39 +1,6 @@
-/* @group HELPERS */
+/* Common varables, functions and mixins */
 .hide-underline {
   text-decoration: none;
-}
-.hide-outline {
-  outline: none;
-}
-.margin-center {
-  margin: 0 auto;
-}
-.text-left {
-  text-align: left;
-}
-.text-right {
-  text-align: right;
-}
-.text-center {
-  text-align: center;
-}
-.float-right {
-  float: right;
-}
-.float-left {
-  float: left;
-}
-.clear-both {
-  clear: both;
-}
-.clear-left {
-  clear: left;
-}
-.clear-right {
-  clear: right;
-}
-.block {
-  display: block !important;
 }
 .padding-background-clip {
   -moz-background-clip: padding;
@@ -61,13 +28,14 @@
   display: block;
 }
 /* End hide from IE-mac */
-/* @end */.layoutTable .left-panel {
+.layoutTable .left-panel {
   width: 400px;
 }
 .layoutTable .right-panel {
   padding-left: 30px;
 }
-.layoutTable .right-panel .code_editor_toolbar, .layoutTable .right-panel .code_editor_footer {
+.layoutTable .right-panel .code_editor_toolbar,
+.layoutTable .right-panel .code_editor_footer {
   display: none;
 }
 .layoutTable .right-panel .code_wrapper {

@@ -1,39 +1,6 @@
-/* @group HELPERS */
+/* Common varables, functions and mixins */
 .hide-underline {
   text-decoration: none;
-}
-.hide-outline {
-  outline: none;
-}
-.margin-center {
-  margin: 0 auto;
-}
-.text-left {
-  text-align: left;
-}
-.text-right {
-  text-align: right;
-}
-.text-center {
-  text-align: center;
-}
-.float-right {
-  float: right;
-}
-.float-left {
-  float: left;
-}
-.clear-both {
-  clear: both;
-}
-.clear-left {
-  clear: left;
-}
-.clear-right {
-  clear: right;
-}
-.block {
-  display: block !important;
 }
 .padding-background-clip {
   -moz-background-clip: padding;
@@ -61,7 +28,7 @@
   display: block;
 }
 /* End hide from IE-mac */
-/* @end */h2.reportPageHeader {
+h2.reportPageHeader {
   float: left;
   font-size: 2.5em;
 }
@@ -348,7 +315,8 @@ div.chart_container .handle {
 #report_records {
   margin-top: 5px;
 }
-.report_records td.checkbox, .report_records th.checkbox {
+.report_records td.checkbox,
+.report_records th.checkbox {
   display: none;
 }
 .webkit .interval_selector .control_panel {
