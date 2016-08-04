@@ -1347,7 +1347,9 @@ var Backend_ScrollabeTabbar = new Class({
 	
 	initialize: function(tabbar)
 	{
-		this.attach(tabbar);
+		if($(tabbar)) {
+			this.attach(tabbar);
+		}
 	},
 
 	attach: function(tabbar)
