@@ -208,3 +208,4 @@
 #1.9.29 Added new configuration parameter: FORCE_ADMIN_SSL
 #1.10.0 Start community updates. Fixed tab render issue in chrome -webkit
 #1.10.1 Minor fix: avoid tab error on ajax update
+#1.10.2 Minor performance improvement in the Administration Reports Area

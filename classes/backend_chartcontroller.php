@@ -37,6 +37,8 @@
 		
 		protected static $colorStates = array();
 
+		protected $paid_order_status_id = null;
+
 		public function __construct()
 		{
 			parent::__construct();
@@ -127,8 +129,15 @@
 			$status = $this->getOrderPaidStatus();
 			if ($status == 'all')
 				return null;
-				
-			return "(exists (select shop_order_status_log_records.id from shop_order_status_log_records, shop_order_statuses where shop_order_status_log_records.order_id = shop_orders.id and shop_order_statuses.id=shop_order_status_log_records.status_id and shop_order_statuses.code='paid'))";
+
+			if(!$this->paid_order_status_id){
+				$this->paid_order_status_id	= Db_DbHelper::scalar("SELECT id FROM shop_order_statuses WHERE code = 'paid'");
+			}
+
+			if(!is_numeric($this->paid_order_status_id)){
+				return null;
+			}
+			return "(EXISTS (SELECT id FROM shop_order_status_log_records WHERE order_id = shop_orders.id AND status_id=".$this->paid_order_status_id."))";
 		}
 
 		/*
