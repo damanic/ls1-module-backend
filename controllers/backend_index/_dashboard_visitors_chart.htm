@@ -1,0 +1,102 @@
+<?
+$data = Backend_ChartData::get_unique_visits_data();
+traceLog($data);
+$visit_labels = array();
+$visit_data = array();
+foreach($data['visits'] as $visit_record){
+	$visit_labels[] = Phpr_DateTime::parse($visit_record->series_id, Phpr_DateTime::universalDateFormat)->format('%b %d, %Y');
+	$visit_data[] = $visit_record->record_value ? $visit_record->record_value : 0;
+}
+
+$sales_labels = array();
+$sales_data = array();
+foreach($data['sales'] as $visit_record){
+$sales_labels[] = $visit_record->series_id;
+$sales_data[] = $visit_record->record_value ? round($visit_record->record_value,2)  : 0.00 ;
+}
+?>
+<div style="height:250px">
+<canvas id="canvas"></canvas>
+</div>
+<script>
+	jQuery(document).ready(function(){
+		var ctx = document.getElementById("canvas");
+		var myChart = new Chart(ctx, {
+			type : 'line',
+			data : {
+				labels: <?= json_encode($visit_labels) ?>,
+				datasets: [{
+					label: "Visitors",
+					borderColor: '#0D8ECF',
+					backgroundColor: '#E2F2FA',
+					fill: true,
+					data: <?= json_encode($visit_data) ?>,
+					yAxisID: "y-axis-1",
+				}, {
+					label: "Totals",
+					borderColor: '#91B60C',
+					backgroundColor: '#91B60C',
+					fill: false,
+					data: <?= json_encode($sales_data)?>,
+					yAxisID: "y-axis-2"
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				hoverMode: 'index',
+				stacked: false,
+				title:{
+					display: false,
+					text:'Recent Sales + Visitors'
+				},
+				tooltips : {
+					enabled : true,
+					mode : 'nearest',
+					intersect : false,
+				},
+				legend: {
+					display: false,
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+
+						ticks: {
+							autoSkip : true,
+							autoSkipPadding : 38,
+							maxRotation : 0,
+//							callback: function (dataLabel, index) {
+//								// Hide the label of every 2nd dataset. return null to hide the grid line too
+//								return index % 2 === 0 ? dataLabel : '';
+//							}
+						}
+					}],
+					yAxes: [{
+						type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+						display: true,
+						position: "left",
+						id: "y-axis-1",
+						beginAtZero: true,
+						ticks: {
+							min: 0,
+						}
+					}, {
+						type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+						display: true,
+						position: "right",
+						id: "y-axis-2",
+						beginAtZero: true,
+
+						// grid line settings
+						gridLines: {
+							drawOnChartArea: false, // only want the grid lines for one axis to show up
+						},
+					}],
+				}
+			}
+		});
+	});
+
+
+</script>

@@ -3275,7 +3275,7 @@ a.message-link:hover {
   border-left: none;
 }
 /* Charts */
-div.flash_chart {
+div.backend_chart {
   margin-bottom: 15px;
 }
 div.flash_overlay {

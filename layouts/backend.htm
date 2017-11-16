@@ -10,10 +10,10 @@
 		<link rel="stylesheet" href="modules/backend/resources/css/backend.css?<?= module_build('backend') ?>" type="text/css"/>
 		<link rel="stylesheet" href="modules/backend/resources/css/print.css?<?= module_build('backend') ?>" type="text/css" media="print"/>
 		<link rel="stylesheet" href="phproad/resources/css/phproad.css?<?= module_build('core') ?>" type="text/css"/>
-		<?= Phpr_View::includeJavaScript('defaults', module_build('core')) ?>
-		<script type="text/javascript" src="phproad/javascript/jquery.js"></script>
+
+		<script type="text/javascript" src="modules/backend/resources/javascript/mootools.js?<?= module_build('backend') ?>"></script>
+		<?= Phpr_View::includeJavaScript(array('popups.js', 'phproad.js', 'jquery.js', 'jquery-ui.custom.min.js' ), module_build('core')) ?>
 		<script type="text/javascript">jQuery.noConflict();</script>
-		<script type="text/javascript" src="phproad/javascript/jquery-ui.custom.min.js"></script>
 
 		<?= $this->loadResources() ?>
 		<script type="text/javascript" src="modules/backend/resources/javascript/backend.js?<?= module_build('backend') ?>"></script>
