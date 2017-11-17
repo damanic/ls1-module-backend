@@ -4,6 +4,9 @@
 	{
 		public function unique_visits()
 		{
+			$this->xmlData();
+			$this->layout = null;
+
 			$data = self::get_unique_visits_data();
 
 			$this->viewData['sales_data'] = $data['sales'];
