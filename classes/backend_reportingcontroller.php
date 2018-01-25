@@ -189,7 +189,7 @@
 				$monthCode = $year.'.'.$month;
 				if ($prevMonthCode != $monthCode)
 				{
-					$monthStart = $date->toSqlDate();
+					$monthStart = $date->format('%Y-%m-01');
 					$monthFormatted = $date->format('%m.%Y');
 					$prevMonthCode = $monthCode;
 					$monthEnd = Phpr_Date::lastMonthDate($date)->toSqlDate();
