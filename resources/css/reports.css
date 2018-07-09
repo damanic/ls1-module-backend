@@ -1,6 +1,39 @@
-/* Common varables, functions and mixins */
+/* @group HELPERS */
 .hide-underline {
   text-decoration: none;
+}
+.hide-outline {
+  outline: none;
+}
+.margin-center {
+  margin: 0 auto;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+.clear-both {
+  clear: both;
+}
+.clear-left {
+  clear: left;
+}
+.clear-right {
+  clear: right;
+}
+.block {
+  display: block !important;
 }
 .padding-background-clip {
   -moz-background-clip: padding;

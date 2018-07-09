@@ -7,7 +7,9 @@ div.html_preview {
 div.html_preview_content {
   padding: 10px;
 }
-div.html_preview_content p, div.html_preview_content ul, div.html_preview_content ol {
+div.html_preview_content p,
+div.html_preview_content ul,
+div.html_preview_content ol {
   font-family: Arial, Verdana, Helvetica, sans-serif !important;
   padding-bottom: 6px !important;
   font-size: 12px !important;
@@ -62,7 +64,8 @@ div.html_preview_content table {
   margin-bottom: 12px !important;
   border: 1px solid #cccccc !important;
 }
-div.html_preview_content table th, div.html_preview_content table td {
+div.html_preview_content table th,
+div.html_preview_content table td {
   font-family: Arial, Verdana, Helvetica, sans-serif !important;
   font-size: 11px !important;
   color: #333333 !important;
@@ -70,7 +73,8 @@ div.html_preview_content table th, div.html_preview_content table td {
   border-right: 1px solid #cccccc !important;
   vertical-align: top;
 }
-div.html_preview_content table th.number, div.html_preview_content table td.number {
+div.html_preview_content table th.number,
+div.html_preview_content table td.number {
   text-align: right !important;
 }
 div.html_preview_content table thead {

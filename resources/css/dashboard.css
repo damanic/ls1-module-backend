@@ -61,7 +61,7 @@
   display: block;
 }
 /* End hide from IE-mac */
-/* @end */.scoreboardReport {
+.scoreboardReport {
   padding-bottom: 0.3em;
 }
 .scoreboardReport ul li {

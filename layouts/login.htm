@@ -10,7 +10,7 @@
 		<link type="text/css" href="phproad/resources/css/phproad.css" rel="stylesheet"/>
 		<?= Phpr_View::includeJavaScript() ?>
 
-		<script type="text/javascript" src="phproad/javascript/jquery.js"></script>
+		<script type="text/javascript" src="modules/backend/resources/javascript/jquery.js?<?= module_build('backend') ?>"></script>
 		<script type="text/javascript">jQuery.noConflict();</script>
 
 		<?= $this->loadResources() ?>

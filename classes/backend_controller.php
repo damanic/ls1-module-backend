@@ -52,7 +52,6 @@
 			{
 				$this->addCss('/phproad/thirdpart/chosen/chosen.css?1');
 				$this->addJavaScript('/phproad/thirdpart/chosen/chosen.jquery.min.js?3');
-				$this->addJavaScript('/modules/backend/resources/javascript/jquery.tipsy.js?2');
 			}
 			
 			$this->globalHandlers[] = 'onHideHint';
@@ -229,7 +228,29 @@
 		public function renderPartial( $View, $Params = null, $PartialMode = true, $ForcePath = false )
 		{
 			Backend::$events->fireEvent('backend:onBeforeRenderPartial', $this, $View, $Params);
+			$viewOverride = $this->frameworkPartialOverride($View);
+			$View = $viewOverride ? $viewOverride : $View;
 			parent::renderPartial( $View, $Params, $PartialMode, $ForcePath );
+		}
+
+		protected function frameworkPartialOverride($View){
+			$override_paths = array(
+				'behaviors/db_formbehavior/'
+			);
+			foreach($override_paths as $override_path){
+				if(strstr($View,'phproad') && strstr($View,$override_path)){
+					$path_parts = pathinfo($View);
+					if($path_parts['extension'] == 'htm'){
+						$override_path = PATH_APP.'/modules/backend/partials/'.$override_path;
+						$partial = $override_path.basename($View);
+						if(file_exists($partial)){
+							return $partial;
+						}
+					}
+				}
+			}
+
+			return false;
 		}
 		
 		protected function renderLayout($Name = null)

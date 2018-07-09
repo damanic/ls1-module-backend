@@ -12,7 +12,15 @@
 		<link rel="stylesheet" href="phproad/resources/css/phproad.css?<?= module_build('core') ?>" type="text/css"/>
 
 		<script type="text/javascript" src="modules/backend/resources/javascript/mootools.js?<?= module_build('backend') ?>"></script>
-		<?= Phpr_View::includeJavaScript(array('popups.js', 'phproad.js', 'jquery.js', 'jquery-ui.custom.min.js' ), module_build('core')) ?>
+		<script type="text/javascript" src="modules/backend/resources/javascript/jquery.js?<?= module_build('backend') ?>"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.4.1.js"></script>
+		<script type="text/javascript" src="modules/backend/resources/javascript/jquery-ui.custom.js?<?= module_build('backend') ?>"></script>
+		<script type="text/javascript" src="/modules/backend/resources/javascript/jquery.tipsy.js?<?= module_build('backend') ?>"></script>
+		<script type="text/javascript" src="/modules/backend/resources/javascript/fileupload/jquery.fileupload.js?<?= module_build('backend') ?>"></script>
+		<script type="text/javascript" src="/modules/backend/resources/javascript/fileupload/jquery.iframe-transport.js?<?= module_build('backend') ?>"></script>
+		<script type="text/javascript" src="/modules/backend/resources/javascript/jquery.backend.uploader.js?<?= module_build('backend') ?>"></script>
+
+		<?= Phpr_View::includeJavaScript(array('popups.js', 'phproad.js'), module_build('core')) ?>
 		<script type="text/javascript">jQuery.noConflict();</script>
 
 		<?= $this->loadResources() ?>

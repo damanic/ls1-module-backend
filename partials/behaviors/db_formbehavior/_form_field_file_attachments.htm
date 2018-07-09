@@ -1,0 +1,62 @@
+<? 
+	$listContainerId = $this->formGetElementId('form_attachments_container_'.get_class($form_model).'_'.$form_field->dbName);
+	$uploaderContainerId = $this->formGetElementId('form_uploader_container_'.get_class($form_model).'_'.$form_field->dbName);
+	$uploaderLinkId = $this->formGetElementId('form_uploader_link_'.get_class($form_model).'_'.$form_field->dbName);
+	$uploaderId = $this->formGetElementId('form_attachments_uploader_'.get_class($form_model).'_'.$form_field->dbName);
+	$upload_link_container = $this->formGetElementId('form_uploader_link_container_'.get_class($form_model).'_'.$form_field->dbName);
+	$upload_loading_indicator = $this->formGetElementId('form_uploader_indicator_'.get_class($form_model).'_'.$form_field->dbName);
+?>
+
+<div id="<?= $listContainerId ?>">
+	<? $this->formRenderFileAttachments($form_field->dbName); ?>
+</div>
+
+
+<div class="uploader" id="<?= $uploaderId ?>">
+
+	<!-- Upload file link -->
+	<a class="uploader-link" href="javascript:;" id="<?= $uploaderLinkId ?>">
+		<i class="uploader-icon"></i> <?= h($form_field->addAttachmentLabel) ?>
+	</a>
+	<!-- Progress bar -->
+	<div class="uploader-progress progress progress-striped">
+		Uploading
+		<div class="bar"></div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	jQuery(document).ready(function(jQuery) {
+		var init_file_attachments = function() {
+			jQuery('#<?= $uploaderId ?>').uploader({
+				url: '<?= $this->formGetUploadUrl($form_field->dbName) ?>',
+				trigger: '#<?= $uploaderLinkId ?>',
+				extraData: false,
+				onUploadComplete: function() {
+					$('<?= $uploaderId ?>').getForm().sendPhpr(
+						'<?= $this->getEventHandler('onUpdateFileList') ?>',
+						{
+							extraFields: {dbName: '<?= $form_field->dbName ?>'},
+							update: '<?= $listContainerId ?>',
+							loadIndicator: {show: false},
+							onBeforePost: LightLoadingIndicator.show.pass('Loading...'),
+							onComplete: function(){
+								LightLoadingIndicator.hide();
+								realignPopups();
+								window.fireEvent('phpr_file_upload_complete', ['<?= $form_field->dbName ?>']);
+							}
+						}
+				);
+				}
+			});
+		}
+
+		var popupContainer = jQuery('#<?= $uploaderId ?>').closest('div.popupForm');
+		if (popupContainer.length > 0)
+			jQuery(window).on('popupLoaded', init_file_attachments);
+		else
+			init_file_attachments();
+	});
+</script>

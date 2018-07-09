@@ -1,5 +1,5 @@
 // tipsy, facebook style tooltips for jquery
-// version 1.0.0a
+// version 1.0.0b //https://stackoverflow.com/questions/15473731/tipsy-live-does-not-work-with-jquery-1-9-0
 // (c) 2008-2010 jason frame [jason@onehackoranother.com]
 // released under the MIT license
 
@@ -164,13 +164,16 @@
         };
         
         if (!options.live) this.each(function() { get(this); });
-        
-        if (options.trigger != 'manual') {
-            var binder   = options.live ? 'live' : 'bind',
-                eventIn  = options.trigger == 'hover' ? 'mouseenter' : 'focus',
-                eventOut = options.trigger == 'hover' ? 'mouseleave' : 'blur';
-            this[binder](eventIn, enter)[binder](eventOut, leave);
-        }
+
+		if (options.trigger != 'manual') {
+			var eventIn  = options.trigger == 'hover' ? 'mouseenter' : 'focus',
+				eventOut = options.trigger == 'hover' ? 'mouseleave' : 'blur';
+			if(options.live){
+				$(this.context).on(eventIn, this.selector, enter).on(eventOut, this.selector, leave);
+			} else {
+				this.on(eventIn, enter).on(eventOut, leave);
+			}
+		}
         
         return this;
         

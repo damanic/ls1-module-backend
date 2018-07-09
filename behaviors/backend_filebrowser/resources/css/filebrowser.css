@@ -61,17 +61,15 @@
   display: block;
 }
 /* End hide from IE-mac */
-/* @end */div.filebrowser_container {
+div.filebrowser_container {
   border: 2px solid #cccccc;
   background: white;
   /*
 	 * File list
 	 */
-
   /*
 	 * Status bar
 	 */
-
 }
 div.filebrowser_container div.controls {
   background-color: #ededed;
@@ -176,7 +174,8 @@ div.filebrowser_container .file_list ul li.thumbnail span.clear {
   line-height: 0;
   display: block;
 }
-div.filebrowser_container .file_list ul li.thumbnail span.filename, div.filebrowser_container .file_list ul li.thumbnail span.fileinfo {
+div.filebrowser_container .file_list ul li.thumbnail span.filename,
+div.filebrowser_container .file_list ul li.thumbnail span.fileinfo {
   display: block;
   margin-left: 66px;
   padding-bottom: 0.1em;
