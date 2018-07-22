@@ -122,8 +122,8 @@
 			this.updateConditional();
 		}
 	}
-	
-	$(window).load(function(){
+
+	$( window ).on( "load", function() {
 		$.ui.anchorLayout.init();
 	})
 })( jQuery );
