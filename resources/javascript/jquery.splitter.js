@@ -23,10 +23,10 @@
 			}
 			
 			var savedWidth = Cookie.read('splitter-widget-' + $this.attr('id'));
-			if (savedWidth != null)
+			if (savedWidth != null && (savedWidth > 0))
 				leftPanel.css('width', savedWidth + 'px');
 			else if (settings.minWidth) {
-				var calculatedWidth = splitterWidth - separatorWidth - settings.minWidth;
+				var calculatedWidth = (splitterWidth - separatorWidth) - settings.minWidth;
 				leftPanel.css('width', calculatedWidth + 'px');
 			}
 			
@@ -70,8 +70,8 @@
 			}
 			
 			function fixWidth() {
-				if (settings.minWidth && rightPanel.width() < settings.minWidth) {
-					var calculatedWidth = $this.width() - $this.width() - settings.minWidth;
+				if ((settings.minWidth && rightPanel.width()) < settings.minWidth) {
+					var calculatedWidth = $this.width() - settings.minWidth;
 					leftPanel.css('width', calculatedWidth + 'px');
 					
 					if (settings.saveWidth)
