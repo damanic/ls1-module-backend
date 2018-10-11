@@ -50,8 +50,9 @@
 			
 			if (!Phpr::$request->isRemoteEvent())
 			{
-				$this->addCss('/phproad/thirdpart/chosen/chosen.css?1');
-				$this->addJavaScript('/phproad/thirdpart/chosen/chosen.jquery.min.js?3');
+				$mod_build = module_build('backend') ;
+				$this->addCss('/modules/backend/thirdparty/chosen/chosen.css?'.$mod_build );
+				$this->addJavaScript('/modules/backend/thirdparty/chosen/chosen.jquery.min.js?'.$mod_build);
 			}
 			
 			$this->globalHandlers[] = 'onHideHint';
