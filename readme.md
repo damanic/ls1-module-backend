@@ -9,3 +9,4 @@ This updated module can be installed using the updatecenter module: https://gith
 - 1.10.2 Minor performance improvement in the Administration Reports Area
 - 1.10.3 Fixes report dates for >=2018
 - 1.10.4 Fix issue with report date generator
+- 1.11.0 Backend jquery,mootools updates. HTML uploader replaces flash
