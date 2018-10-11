@@ -1569,8 +1569,12 @@ function backend_style_forms()
 			select.bind('change.chosen-handler', function(){
 				$(this).fireEvent('change');
 			});
-			
-			options.search_contains = true;
+
+			if(this.hasClass('search-contains--false')){
+				options.search_contains = false;
+			} else {
+				options.search_contains = true;
+			}
 
 			select.chosen(options);
 		}
