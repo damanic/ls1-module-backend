@@ -211,4 +211,4 @@
 #1.10.2 Minor performance improvement in the Administration Reports Area
 #1.10.3 Fixes report dates for >=2018
 #1.10.4 Fix issue with report date generator
-#1.11.0 HTML image uploader replaces Flash
+#1.11.0 HTML image uploader replaces Flash, Jquery and mootools updates

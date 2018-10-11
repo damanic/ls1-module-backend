@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * @TODO update instances of addFileLink to HTML uploaders
+ *  - file type checks?
+ */
 	class Backend_Module extends Core_ModuleBase
 	{
 		/**
