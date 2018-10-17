@@ -212,3 +212,4 @@
 #1.10.3 Fixes report dates for >=2018
 #1.10.4 Fix issue with report date generator
 #1.11.0 HTML image uploader replaces Flash, Jquery and mootools updates
+#1.11.1 Fixes issue with form file attachment uploader not initializing within ajax popup loads
