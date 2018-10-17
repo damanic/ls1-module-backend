@@ -28,8 +28,9 @@
 
 <script type="text/javascript">
 
-	jQuery(document).ready(function(jQuery) {
-		var init_file_attachments = function() {
+	var fa_helper<?=$uploaderLinkId?> = {
+		uploader_initialized : false,
+		init_file_attachments : function(){
 			jQuery('#<?= $uploaderId ?>').uploader({
 				url: '<?= $this->formGetUploadUrl($form_field->dbName) ?>',
 				trigger: '#<?= $uploaderLinkId ?>',
@@ -51,12 +52,17 @@
 				);
 				}
 			});
+			this.uploader_initialized = true;
 		}
+	};
 
-		var popupContainer = jQuery('#<?= $uploaderId ?>').closest('div.popupForm');
-		if (popupContainer.length > 0)
-			jQuery(window).on('popupLoaded', init_file_attachments);
-		else
-			init_file_attachments();
+
+	jQuery(document).ready(function(jQuery) {
+		fa_helper<?=$uploaderLinkId?>.init_file_attachments();
+	});
+	jQuery(window).on('popupLoaded', function(){
+		if(!fa_helper<?=$uploaderLinkId?>.uploader_initialized){
+			fa_helper<?=$uploaderLinkId?>.init_file_attachments();
+		}
 	});
 </script>
