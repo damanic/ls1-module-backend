@@ -11,6 +11,7 @@
 			url: null,
 			fieldName: 'file',
 			trigger: null,
+			dropContainer: null,
 			extraData: null,
 			embedProgressTo: null,
 			instantStart: true,
@@ -18,7 +19,7 @@
 			processResponse: true,
 			onUploadComplete: null,
 			onUploadStart: null,
-			onUploadFail: null
+			onUploadFail: null,
 		},
 
 		files: [],
@@ -26,11 +27,13 @@
 		progressBar: null,
 		inputField: null,
 		triggerElement: null,
+		dropContainer : null,
 
 		_init: function () { var self = this;
 			this.progressBar = this.element.find('.progress > .bar:first');
 			this.inputField = this._create_input_field();
 			this.triggerElement = $(this.options.trigger);
+			this.dropContainer = $(this.options.dropContainer);
 
 			this._bind_trigger();
 			this._bind_uploader();
@@ -38,7 +41,8 @@
 			this.progressBar.parent().hide();
 		},
 
-		_bind_uploader: function() { var self = this;
+		_bind_uploader: function() {
+			var self = this;
 			var uploaderOptions = {
 				start: $.proxy(self.onUploadStart, self),
 				done: $.proxy(self.onUploadComplete, self),
@@ -47,7 +51,9 @@
 				dataType: 'json',
 				type: 'POST',
 				url: this.options.url,
-				paramName: this.options.fieldName
+				paramName: this.options.fieldName,
+				dropZone: this.dropContainer,
+				pasteZone: this.dropContainer,
 			};
 
 			// Splice in extraData with form data

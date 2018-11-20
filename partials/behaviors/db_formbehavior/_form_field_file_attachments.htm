@@ -35,6 +35,7 @@
 				url: '<?= $this->formGetUploadUrl($form_field->dbName) ?>',
 				trigger: '#<?= $uploaderLinkId ?>',
 				extraData: false,
+				dropContainer: '#<?= $listContainerId ?>',
 				onUploadComplete: function() {
 					$('<?= $uploaderId ?>').getForm().sendPhpr(
 						'<?= $this->getEventHandler('onUpdateFileList') ?>',
