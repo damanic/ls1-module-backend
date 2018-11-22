@@ -214,3 +214,4 @@
 #1.11.0 HTML image uploader replaces Flash, Jquery and mootools updates
 #1.11.1 Fixes issue with form file attachment uploader not initializing within ajax popup loads
 #1.11.2 Improved image uploads: upload images by drag-drop or paste into file list containers
+#1.11.3 Minor fix in the Administration Area UI
