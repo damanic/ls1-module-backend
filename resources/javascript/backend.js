@@ -1121,9 +1121,11 @@ function update_tooltips()
 function hide_tooltips()
 {
 	(function( $ ){
-		$('a.tooltip, span.tooltip').each(function(index, e){
-			$(e).tipsy('hide');
-		});
+		if ($.fn.tipsy !== undefined) {
+			$('a.tooltip, span.tooltip').each(function (index, e) {
+				$(e).tipsy('hide');
+			});
+		}
 	})(jQuery);
 }
 
