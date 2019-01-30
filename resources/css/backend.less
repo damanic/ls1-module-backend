@@ -2033,6 +2033,32 @@ div.scrollableList {
 	}
 }
 
+//allow scrollableList height to be set through field container css
+.fieldContainer {
+	&.height{
+		&-300 {
+			.scrollableList {
+				height: 300px;
+			}
+		}
+		&-400 {
+			.scrollableList {
+				height: 400px;
+			}
+		}
+		&-500 {
+			.scrollableList {
+				height: 500px;
+			}
+		}
+		&-600 {
+			.scrollableList {
+				height: 600px;
+			}
+		}
+	}
+}
+
 .ui-scrollable-panel {
 	.viewport {
 		overflow: hidden;
