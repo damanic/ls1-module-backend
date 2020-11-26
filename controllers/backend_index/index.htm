@@ -31,33 +31,33 @@
 		<div class="backend_chart">
 			<div class="backend_chart_content">
 				<? if (!Phpr::$config->get('ENABLE_HTML5_CHARTS')):?>
-				<script type="text/javascript" src="modules/backend/resources/javascript/swfobject.js"></script>
-				<div id="flashcontent" class="flashcontent">
-					<span>You may not have Macromedia Flash Player installed on your system, or your Macromedia Flash Player is out of date. Please download and install Flash Player: <a href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/</a> </span>
-				</div>
-				<script type="text/javascript">
-					var so = new SWFObject("<?= root_url('/modules/backend/resources/swf/amline.swf') ?>", "amchart", "100%", "220", "8", "#FFFFFF");
-					so.addVariable("path", escape("<?= root_url('/modules/backend/resources/swf/') ?>"));
-					so.addVariable("settings_file", 
-						encodeURIComponent("<?= root_url('/modules/backend/resources/xml/chart_common_settings.xml?'.time()) ?>")+',' +
-						encodeURIComponent("<?= root_url('/modules/backend/resources/xml/unique_visits_settings.xml?'.time()) ?>")+','+ 
-						encodeURIComponent( "<?= url('backend/chartdata/unique_visits?'.time()) ?>")
-					);
-					so.addParam("wmode", "transparent");
-			
-					so.addVariable("chart_id", "amchart");
-			
-					so.write("flashcontent");
-			
-					window.flashMovie = null;
-					function amChartInited (chart_id)
-					{
-						window.flashMovie = document.getElementById(chart_id);
-					}
-				</script>
+					<script type="text/javascript" src="modules/backend/resources/javascript/swfobject.js"></script>
+					<div id="flashcontent" class="flashcontent">
+						<span>You may not have Macromedia Flash Player installed on your system, or your Macromedia Flash Player is out of date. Please download and install Flash Player: <a href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/</a> </span>
+					</div>
+					<script type="text/javascript">
+						var so = new SWFObject("<?= root_url('/modules/backend/resources/swf/amline.swf') ?>", "amchart", "100%", "220", "8", "#FFFFFF");
+						so.addVariable("path", escape("<?= root_url('/modules/backend/resources/swf/') ?>"));
+						so.addVariable("settings_file",
+							encodeURIComponent("<?= root_url('/modules/backend/resources/xml/chart_common_settings.xml?'.time()) ?>")+',' +
+							encodeURIComponent("<?= root_url('/modules/backend/resources/xml/unique_visits_settings.xml?'.time()) ?>")+','+
+							encodeURIComponent( "<?= url('backend/chartdata/unique_visits?'.time()) ?>")
+						);
+						so.addParam("wmode", "transparent");
+
+						so.addVariable("chart_id", "amchart");
+
+						so.write("flashcontent");
+
+						window.flashMovie = null;
+						function amChartInited (chart_id)
+						{
+							window.flashMovie = document.getElementById(chart_id);
+						}
+					</script>
 				<? else :?>
-				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-				<? $this->renderPartial('dashboard_visitors_chart'); ?>
+					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+					<? $this->renderPartial('dashboard_visitors_chart'); ?>
 				<? endif;?>
 			</div>
 		</div>

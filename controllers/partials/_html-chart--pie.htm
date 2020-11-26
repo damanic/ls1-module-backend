@@ -1,0 +1,79 @@
+<?php
+$chartData = isset($chartData) ? $chartData : false;
+$labels = array();
+$data = array();
+$dataset          = array(
+	'data' => array(),
+	'label' => 'Pie Chart'
+);
+$colors = array();
+$max_segments = 25;
+$max_labels = 10;
+$limited_display = false;
+
+//Map segments to data
+foreach($chartData['data'] as $data_record) {
+	$graph_code = $data_record->graph_code;
+	if(is_null($graph_code)){
+		continue;
+	}
+	if ( !isset( $labels[$graph_code] ) ) {
+		$labels[$data_record->graph_name] = 0;
+		$colors[] = isset($this->chartColors[count($labels)]) ? $this->chartColors[count($labels)] : array_rand($this->chartColors);
+	}
+	$value = $data_record->record_value ? round($data_record->record_value,2) : 0;;
+	$data[$data_record->graph_name] = $value;
+}
+
+//hide legend if too many labels
+$legend_display = true;
+if(count($data) > $max_labels){
+	$legend_display = false;
+}
+
+//limit the amount of segments to avoid overloading display
+if(count($data) > $max_segments){
+	$limited_display = true;
+	arsort($data);
+	$data = array_splice($data,0,$max_segments);
+}
+
+$dataset['backgroundColor'] = $colors;
+$dataset['data'] = array_values($data);
+$labels = array_keys($data);
+
+?>
+
+<? if($limited_display): ?>
+	<section style="text-align: center;">
+		This graph is showing the top <?=$max_segments?> segments
+	</section>
+<? endif;?>
+
+<canvas id="backend-pie-chart-canvas"></canvas>
+<script>
+	jQuery(document).ready(function(){
+
+		var ctx = document.getElementById("backend-pie-chart-canvas");
+
+		var myChart = new Chart(ctx, {
+			"type" : "pie",
+			"data" : {
+				"labels": <?= json_encode($labels, JSON_PRETTY_PRINT) ?>,
+				"datasets": [<?= json_encode($dataset, JSON_PRETTY_PRINT) ?>]
+			},
+			"options": {
+				"responsive": true,
+				"maintainAspectRatio": false,
+				"animation" : {
+					"animateScale" : true,
+					"animateRotate" : true
+				},
+				"legend": {
+					"display": <?=$legend_display ? 'true' : 'false'?>
+				},
+			}
+		});
+	});
+
+</script>

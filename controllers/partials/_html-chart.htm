@@ -1,0 +1,23 @@
+<?php
+$allowed_chart_types = array(
+	'pie',
+	'line',
+	'column'
+);
+$chartType = isset($chartType) ? $chartType : null;
+$chartData = isset($chartData) ? $chartData : false;
+if(!$chartData || !in_array($chartType, $allowed_chart_types)){
+	echo '<h3 style="text-align: right;">[ THIS REPORT DOES NOT SUPPORT HTML CHARTS ]</h3>';
+	return;
+}
+
+$htmlChartType = ($chartType == 'column') ? 'bar' : $chartType;
+?>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+
+<div style="height:275px">
+	<? $this->renderPartial(PATH_APP.'/modules/backend/controllers/partials/_html-chart--'.$htmlChartType.'.htm', array(
+		'chartData' => $chartData,
+	)); ?>
+</div>
