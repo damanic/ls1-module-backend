@@ -45,8 +45,8 @@ foreach($data_sets as $graph_code => $data_set){
 //Make the series labels pretty
 foreach($chartData['series'] as $series_index){
 	$date = Phpr_DateTime::parse( $series_index->series_id, Phpr_DateTime::universalDateFormat );
-	$series_id = $date ? $date->format( '%b %d, %Y' ) : $series_index->series_id; //if does not parse as datetime, use raw string
-	$series_labels[]     = $series_id;
+	$series_value = $date ? $date->format( '%b %d, %Y' ) : $series_index->series_value; //if does not parse as datetime, use raw string
+	$series_labels[]     = $series_value;
 }
 
 

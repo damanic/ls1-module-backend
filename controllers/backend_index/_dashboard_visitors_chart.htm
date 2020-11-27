@@ -27,15 +27,13 @@ $sales_data[] = $visit_record->record_value ? round($visit_record->record_value,
 				datasets: [{
 					label: "Visitors",
 					borderColor: '#0D8ECF',
-					backgroundColor: '#E2F2FA',
 					fill: true,
 					data: <?= json_encode($visit_data) ?>,
 					yAxisID: "y-axis-1",
 				}, {
 					label: "Totals",
 					borderColor: '#91B60C',
-					backgroundColor: '#91B60C',
-					fill: false,
+					fill: true,
 					data: <?= json_encode($sales_data)?>,
 					yAxisID: "y-axis-2"
 				}]
