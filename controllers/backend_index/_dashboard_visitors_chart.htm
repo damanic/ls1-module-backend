@@ -1,17 +1,19 @@
 <?
 $data = Backend_ChartData::get_unique_visits_data();
+$labels = array();
+
+$sales_data = array();
+foreach($data['sales'] as $visit_record){
+	$labels[$visit_record->series_id] = Phpr_DateTime::parse($visit_record->series_id, Phpr_DateTime::universalDateFormat)->format('%b %d, %Y');
+	$sales_data[] = $visit_record->record_value ? round($visit_record->record_value,2)  : 0.00 ;
+}
+
 $visit_labels = array();
 $visit_data = array();
 foreach($data['visits'] as $visit_record){
-	$visit_labels[] = Phpr_DateTime::parse($visit_record->series_id, Phpr_DateTime::universalDateFormat)->format('%b %d, %Y');
-	$visit_data[] = $visit_record->record_value ? $visit_record->record_value : 0;
-}
-
-$sales_labels = array();
-$sales_data = array();
-foreach($data['sales'] as $visit_record){
-$sales_labels[] = $visit_record->series_id;
-$sales_data[] = $visit_record->record_value ? round($visit_record->record_value,2)  : 0.00 ;
+	if(isset($labels[$visit_record->series_id])) {
+		$visit_data[] = $visit_record->record_value ? $visit_record->record_value : 0;
+	}
 }
 ?>
 <div style="height:250px">
@@ -23,7 +25,7 @@ $sales_data[] = $visit_record->record_value ? round($visit_record->record_value,
 		var myChart = new Chart(ctx, {
 			type : 'line',
 			data : {
-				labels: <?= json_encode($visit_labels) ?>,
+				labels: <?= json_encode(array_values($labels)) ?>,
 				datasets: [{
 					label: "Visitors",
 					borderColor: '#0D8ECF',
