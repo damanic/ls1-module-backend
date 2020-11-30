@@ -27,7 +27,7 @@
 </div>
 
 
-<? if (!Phpr::$config->get('ENABLE_HTML5_CHARTS', false)):?>
+<? if (!Phpr::$config->get('ENABLE_HTML5_CHARTS', true)):?>
 
 	<? $this->renderPartial(PATH_APP.'/modules/backend/controllers/partials/_swf-chart.htm', array(
 		'chartType' => $chartType,

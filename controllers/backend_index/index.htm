@@ -30,7 +30,7 @@
 
 		<div class="backend_chart">
 			<div class="backend_chart_content">
-				<? if (!Phpr::$config->get('ENABLE_HTML5_CHARTS')):?>
+				<? if (!Phpr::$config->get('ENABLE_HTML5_CHARTS', true)):?>
 					<script type="text/javascript" src="modules/backend/resources/javascript/swfobject.js"></script>
 					<div id="flashcontent" class="flashcontent">
 						<span>You may not have Macromedia Flash Player installed on your system, or your Macromedia Flash Player is out of date. Please download and install Flash Player: <a href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/</a> </span>
