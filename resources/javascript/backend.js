@@ -1739,6 +1739,11 @@ window.addEvent('domready', function(){
 	var content = jQuery('#content');
 	if (content.length > 0)
 		backend_bind_default_button(content[0]);
+
+	//php redirect listener
+	window.addEventListener("on_php_response_redirect", function(e) {
+		LightLoadingIndicator.show('Redirecting...');
+	});
 });
 
 /*
