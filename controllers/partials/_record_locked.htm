@@ -1,21 +1,29 @@
 <?
 	$record_name = isset($record_name) ? $record_name : 'record';
-	$message = 'Another user (%s) is editing this '.$record_name.'. The edit session started %s.';
-		
-	$mins = $lock->get_age_mins();
-	$allowed_steal_interval = 0;
+	$message = isset($message) ? $message : 'Another user (%s) is editing this '.$record_name.'. The edit session started %s.';
+	$allowed_steal_interval = isset($allowed_steal_interval) ? $allowed_steal_interval : 0;
+	if ($this->currentUser->is_administrator()){
+		$allowed_steal_interval = 0; // you cannot make admins wait ;)
+	}
+	$age_mins = $lock->get_age_mins();
 ?>
 
 <?= Phpr_Form::openTag() ?>
 	<div class="lock_message">
 		<p>
 			<?= sprintf(h($message), $lock->created_user_name, $lock->get_age_str()) ?>
-			<? if ($mins > $allowed_steal_interval): ?>
-				<br/>You can steal the lock to edit the <?= $record_name ?>. In this case user <?= h($lock->created_user_name) ?> will not be able to save changes.
-			<? endif ?>
+		<? if ($age_mins > $allowed_steal_interval): ?>
+			<br/>If you steal the lock to process the <?= $record_name ?> the user
+			<?= h($lock->created_user_name) ?> will not be able to save their changes.
+		<? else: ?>
+			<br/>The longest user <?= h($lock->created_user_name) ?> can hold this lock is <?=$allowed_steal_interval?> minutes.
+			Refresh to try again or come back later.
+		<? endif;?>
+		<br/>
+		<i> Have you tried contacting the user who is holding the lock for this <?= $record_name ?> ? </i>
 		</p>
 
-		<? if ($mins > $allowed_steal_interval): ?>
+	<? if ($age_mins > $allowed_steal_interval): ?>
 			<? if ($lock->record_id): ?>
 				<?= backend_ajax_button('Steal the lock', 'edit_onStealLock', array(), "confirm: 'Are you sure?',
 				onBeforePost: LightLoadingIndicator.show.pass('Loading...'), 
