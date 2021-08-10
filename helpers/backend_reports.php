@@ -151,6 +151,23 @@
 			ksort($reports_list);
 			return $reports_list;
 		}
+
+		public static function getFirstReportInfo(){
+			$first_report = null;
+			$reports = self::listReports();
+			if(!count($reports)){
+				return null;
+			}
+			$first_group_name = array_keys($reports)[0];
+			$first_module_id = array_keys($reports[$first_group_name])[0];
+			$group_reports = $reports[$first_group_name][$first_module_id]['reports'];
+			return array(
+				'module_id' => $first_module_id,
+				'report_id' => array_keys($group_reports)[0],
+				'report_name' => array_values($group_reports)[0],
+				'report_group_name' => $first_group_name
+			);
+		}
 	}
 
 ?>

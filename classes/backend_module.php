@@ -30,17 +30,10 @@
 			if ($user && $user->get_permission('backend', 'access_dashboard'))
 				$tabCollection->tab('dashboard', 'Dashboard', '', 10);
 
-			$reports = Core_ModuleManager::listReports();
+			$reports = Backend_Reports::listReports();
 			if (count($reports))
 			{
-				foreach ($reports as $module_id=>$reports)
-				{
-					if (count($reports['reports']))
-					{
 						$tabCollection->tab('reports', 'Reports', 'reports', 15);
-						break;
-					}
-				}
 			}
 		}
 		

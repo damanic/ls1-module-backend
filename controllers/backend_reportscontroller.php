@@ -4,17 +4,13 @@
 	{
 		public function index()
 		{
-			$reports = Core_ModuleManager::listReports();
+			$reports = Backend_Reports::listReports();
 			if (!count($reports))
 				Phpr::$response->redirect(url());
 
-			foreach ($reports as $module_id=>$reports)
-			{
-				foreach ($reports['reports'] as $id=>$report)
-				{
-					Phpr::$response->redirect(url($module_id.'/'.$id.'_report'));
-					break 2;
-				}
+			$first_report_info = Backend_Reports::getFirstReportInfo();
+			if($first_report_info){
+				Phpr::$response->redirect(url($first_report_info['module_id'].'/'.$first_report_info['report_id'].'_report'));
 			}
 			
 			Phpr::$response->redirect(url());
