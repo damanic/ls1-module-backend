@@ -123,6 +123,34 @@
 			
 			return null;
 		}
+
+		/**
+		 * Fetches list of report identifiers for each module and groups them by name
+		 * @return array
+		 */
+		public static function listReports(){
+			$reports = Core_ModuleManager::listReports();
+			$reports_list = array();
+			foreach ($reports as $module_id => $module_reports){
+				if(isset($module_reports['name'])){ //single group name
+					if(!isset($module_reports['reports']) || !count($module_reports['reports'])){
+						continue;
+					}
+					$report_group_name = isset($module_reports['name']) ? $module_reports['name'] : 'Reports';
+					$reports_list[$report_group_name][$module_id] = $module_reports;
+				} else {
+					foreach($module_reports as $multi_report){ //multiple group names
+						if(!isset($multi_report['reports']) || !count($multi_report['reports'])){
+							continue;
+						}
+						$report_group_name = isset($multi_report['name']) ? $multi_report['name'] : 'Reports';
+						$reports_list[$report_group_name][$module_id] = $multi_report;
+					}
+				}
+			}
+			ksort($reports_list);
+			return $reports_list;
+		}
 	}
 
 ?>
