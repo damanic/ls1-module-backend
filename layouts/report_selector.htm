@@ -3,7 +3,6 @@
 	$first_header = true;
 	$current_module_id = strtolower(Phpr::$router->param('module'));
 	$currentReport = $this->viewDataElement('report');
-	traceLog($reports_list);
 	foreach ($reports_list as $report_group_name => $module_reports):
 
 		if (!count($module_reports))
