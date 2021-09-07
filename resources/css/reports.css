@@ -61,6 +61,7 @@
   display: block;
 }
 /* End hide from IE-mac */
+/* @end */
 h2.reportPageHeader {
   float: left;
   font-size: 2.5em;
@@ -182,7 +183,7 @@ div#report_totals .scoreboardReport {
   background-color: #cc9933;
 }
 .interval_selector div.datePickerSliderConainer {
-  border: 1px solid #ccc!important;
+  border: 1px solid #ccc !important;
 }
 .interval_selector div.type_selector {
   float: left;
@@ -208,7 +209,7 @@ div#report_totals .scoreboardReport {
   outline: none;
 }
 .interval_selector div.type_selector p a:hover {
-  background: #3E99CA!important;
+  background: #3E99CA !important;
   color: white!important;
 }
 .interval_selector div.type_selector p a.current {
@@ -240,15 +241,16 @@ div.filters_container .filters h5 {
 /*
  * Chart controls
  */
-div.chart_controls {
+div.report_controls {
+  display: inline;
   padding-bottom: 1em;
 }
-div.chart_controls .controls li {
+div.report_controls .controls li {
   float: left;
   font: normal 1.1em Arial, Verdana, sans-serif;
   margin-right: 0.5em;
 }
-div.chart_controls .controls li label {
+div.report_controls .controls li label {
   margin-top: 0.3em;
   float: left;
   color: #333;

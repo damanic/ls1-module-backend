@@ -5,7 +5,7 @@
 	$chartData = $this->getChartData();
 ?>
 
-<div class="chart_controls">
+<div class="report_controls">
 	<?= Phpr_Form::openTag(array('id'=>'chart_form')) ?>
 		<? $this->renderPartial(PATH_APP.'/modules/'.$this->getModuleId().'/controllers/'.strtolower(get_class($this)).'/_chart_controls.htm') ?>
 		<ul class="chart_selector">

@@ -46,6 +46,14 @@
 
 				<? $this->renderLayout('report_filters') ?>
 
+				<? if($this->report_control_partial) : ?>
+					<div class="report_controls">
+						<?= Phpr_Form::openTag(array('id'=>'report_controls_form')) ?>
+							<? $this->renderPartial($this->report_control_partial) ?>
+						</form>
+					</div>
+				<? endif; ?>
+
 				<?= Phpr_View::block("view") ?>
 
 				<?= Phpr_Form::openTag(array('id'=>'report_form')) ?>

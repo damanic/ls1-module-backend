@@ -37,6 +37,7 @@
 		public $filter_onRemove = 'updateReportData();';
 
 		public $report_interval = true;
+		public $report_control_partial = null;
 		
 		public function __construct()
 		{
