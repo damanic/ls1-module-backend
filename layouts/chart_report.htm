@@ -40,13 +40,11 @@
 						?>
 					</td>
 					<td class="report_content">
-						<div class="header">
+						<div class="header" style="min-height: 55px;">
 							<h3><?= $this->app_page_title ?></h3>
-
-							<? $this->renderLayout(PATH_APP.'/modules/backend/layouts/interval_selector.htm') ?>
-
-							<div class="clear"></div>
+							<? $this->report_interval ? $this->renderLayout(PATH_APP.'/modules/backend/layouts/interval_selector.htm') : null ?>
 						</div>
+						<div style="clear: both"></div>
 
 						<? $this->renderLayout('report_filters') ?>
 						
@@ -59,8 +57,10 @@
 						</div>
 
 						<?= Phpr_View::block("view") ?>
-						
+
+						<?= Phpr_Form::openTag(array('id'=>'report_form')) ?>
 						<div id="report_totals"><? $this->renderReportTotals() ?></div>
+						</form>
 						
 						<div class="report_records normalTopIndent" id="report_records"><? $this->renderLayout(PATH_APP.'/modules/backend/layouts/report_records.htm') ?></div>
 						<div class="clear"></div>

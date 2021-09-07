@@ -6,6 +6,7 @@
 		{
 			parent::__construct();
 			$this->app_tab = 'dashboard';
+			$this->layout = 'backend';
 		}
 
 		public function index()

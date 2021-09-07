@@ -454,7 +454,7 @@
 		abstract public function refererName();
 
 		/*
-		 * Chart totals
+		 * Report totals
 		 */
 
 		protected function index_onUpdateTotals() {

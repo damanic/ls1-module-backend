@@ -24,7 +24,7 @@
 		public $list_no_setup_link = false;
 		public $list_options = array();
 
-		public $list_control_panel_partial = null;
+		public $list_control_panel_partial = PATH_APP . '/modules/backend/layouts/report_list_control_panel.htm';
 
 		protected $settingsDomain = 'dashboard';
 		
@@ -35,6 +35,8 @@
 		public $filter_prompt = 'Please choose records to include to the report.';
 		public $filter_onApply = 'updateReportData();';
 		public $filter_onRemove = 'updateReportData();';
+
+		public $report_interval = true;
 		
 		public function __construct()
 		{
@@ -44,11 +46,27 @@
 			$this->addCss('/modules/backend/resources/css/reports.css?'.module_build('backend'));
 			$this->addCss('/phproad/modules/db/behaviors/db_listbehavior/resources/css/list.css');
 			parent::__construct();
+			$this->layout = PATH_APP . '/modules/backend/layouts/report.htm';
 			
 			$this->app_tab = 'reports';
 			$this->app_module = 'backend';
 		}
-		
+
+		public function export_list($format = null, $file_name = 'report_list')
+		{
+			$this->list_name = get_class($this).'_index_list';
+			$options = array();
+			$options['iwork'] = $format == 'iwork';
+			$file_name = $file_name ? $file_name.'.csv' : 'report_list.csv';
+			$this->listExportCsv($file_name, $options);
+		}
+
+		protected function index_onUpdateTotals() {
+			$this->renderReportTotals();
+		}
+
+		protected function renderReportTotals() {}
+
 		protected function get_interval_start()
 		{
 			$result = Db_UserParameters::get($this->settingsDomain.'_report_int_start');
