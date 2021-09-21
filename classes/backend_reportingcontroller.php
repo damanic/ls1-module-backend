@@ -11,9 +11,6 @@
 		public $list_no_data_message = 'No orders found';
 		public $list_items_per_page = 6;
 		public $list_custom_prepare_func = null;
-		
-		public $filter_desc_max_len = 100;
-
 		public $list_no_js_declarations = false;
 		public $list_sorting_column = null;
 		public $list_record_url = null;
@@ -23,7 +20,6 @@
 		public $list_name = null;
 		public $list_no_setup_link = false;
 		public $list_options = array();
-
 		public $list_control_panel_partial = PATH_APP . '/modules/backend/layouts/report_list_control_panel.htm';
 
 		protected $settingsDomain = 'dashboard';
@@ -35,6 +31,9 @@
 		public $filter_prompt = 'Please choose records to include to the report.';
 		public $filter_onApply = 'updateReportData();';
 		public $filter_onRemove = 'updateReportData();';
+        public $filter_desc_max_len = 100;
+        public $filter_filters = array();
+        public $filter_switchers = array();
 
 		public $report_interval = true;
 		public $report_control_partial = null;
@@ -48,9 +47,9 @@
 			$this->addCss('/phproad/modules/db/behaviors/db_listbehavior/resources/css/list.css');
 			parent::__construct();
 			$this->layout = PATH_APP . '/modules/backend/layouts/report.htm';
-			
 			$this->app_tab = 'reports';
 			$this->app_module = 'backend';
+            Backend::$events->fireEvent('backend:onExtendReportingController', $this);
 		}
 
 		public function export_list($format = null, $file_name = 'report_list')
