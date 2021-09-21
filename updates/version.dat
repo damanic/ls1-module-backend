@@ -221,3 +221,4 @@
 #1.12.1 Minor UI improvements
 #1.12.2 Improved method for listing backend reports
 #1.12.3 Improved support for reports without charts or intervals
+#1.12.4 Adds new API event
