@@ -193,27 +193,7 @@
 		}
 
 		protected function report_export_pdf( $options = array()) {
-
 			Phpr::$events->fire_event('backend:on_before_report_pdf_export', $this->_controller);
-
-			$this->apply_options($options);
-
-			$this->report_data_context = 'pdf';
-			ob_start();
-			$this->report_display_table();
-			$html = ob_get_clean();
-
-			$data = $this->load_data(true);
-
-//			$pdf = new xPDF_File($this,$this->_controller->report_name, array('or' => 'L'));
-//			$pdf->title = $data->title;
-//			$pdf->subject = 'Accounting Report';
-//			$pdf->init_document();
-//			$pdf->add_heading( $data->context, 18, 'freesans');
-//			$pdf->add_heading( $data->title, 22, 'freesans');
-//			$pdf->add_heading( $data->description."\n\n", 12, 'freesans');
-//			$pdf->add_html_content($html);
-//			$pdf->as_download($this->report_get_name().'.pdf');
 			$this->_controller->suppressView();
 		}
 
@@ -451,7 +431,7 @@
 
 
 
-		//common methods for overide
+		//common methods for override
 		public function report_before_display_row($row) {
 
 		}
