@@ -1,0 +1,25 @@
+.report-table td{
+	font-size:102%;
+	background-color: white !important;
+	border-top:1px solid #cccccc;
+}
+.report-table th{
+	font-size:103%;
+	font-weight: bold !important;
+}
+tr.heading > td {
+	font-size: 120%;
+	padding-top:30px;
+	padding-left:0px;
+	font-weight: bold;
+	border:0;
+}
+
+
+tr.balance_totals > td {
+	font-weight: bold;
+	background-color: #f9f9f9 !important;
+	border-top:1px black solid !important;
+	border-bottom:1px black solid;
+}
+

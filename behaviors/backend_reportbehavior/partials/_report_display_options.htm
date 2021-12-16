@@ -1,0 +1,38 @@
+<select id="phpr_report_display_view_input" name="report_display_view">
+	<? foreach($this->report_display_variants as $key => $title) {
+		$selected = ($this->get_report_view() == $key) ? 'selected="selected"' : null;
+	?>
+	<option value="<?=$key?>" <?=$selected?>><?=$title?></option>
+	<?}?>>
+</select>
+
+<?
+$form_id = $this->report_get_form_id();
+?>
+<script>
+	jQuery(document).ready(function(){
+		jQuery("#phpr_report_display_view_input").bind("change paste keyup", function() {
+
+				return jQuery('<?= $form_id ?>').phpr().post('<?= $this->get_event_handler("on_report_change_display") ?>', {
+					update: '#<?= $this->report_get_container_id() ?>',
+					success: function() {
+						jQuery('#<?= $this->report_get_container_id() ?>').trigger('reportUpdated');
+					},
+					data: {
+						'report_display_view': jQuery(this).val(),
+						'report_name': '<?=$this->report_get_name();?>',
+					},
+					loadIndicator: {
+						injectInElement: true,
+						element: '#<?= $this->report_get_container_id() ?>',
+						src: '<?= $report_load_indicator ?>',
+						hideOnSuccess: true
+					}
+				}).send();
+		});
+
+	});
+
+</script>
+
+<div style="clear:right;"></div>

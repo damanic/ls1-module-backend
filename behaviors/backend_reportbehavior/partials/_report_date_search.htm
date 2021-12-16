@@ -1,0 +1,73 @@
+<?
+
+    $date_search_active = isset($report_date_start) && isset($report_date_end);
+?>
+<div id="interval_container">
+    <input id="phpr_report_date_search_input" name="phpr_report_date_search_input"/>
+    <div class="interval_selector" id="report_interval_selector">
+        <div>
+            <span class="type">Dates</span>
+            <span id="report_date_interval_text" class="interval"><?= $date_search_active ? "$report_date_start - $report_date_end" : '-'?></span>
+        </div>
+        <a id="report_date_search_trigger" class="trigger"><i class="calendar_button"></i></a>
+    </div>
+</div>
+
+<?
+$form_id = $this->report_get_form_id();
+$report_form = $this->report_no_form ? "jQuery('#".$search_control_id."').closest('form')" : "jQuery('#".$form_id."')";
+?>
+<script>
+    jQuery(document).ready(function(){
+        jQuery("#phpr_report_date_search_input").bind("change paste keyup", function() {
+            if(!jQuery(this).val()){
+                update_report();
+                update_date_display();
+            }
+        });
+
+
+            jQuery("#phpr_report_date_search_input").daterangepicker({
+                datepickerOptions : {
+                    numberOfMonths : 2
+                },
+                onChange: function() {
+                    update_report();
+                }
+            });
+
+        function update_date_display() {
+            if (!jQuery('#phpr_report_date_search_input').val()) {
+                jQuery('#report_date_interval_text').html('All');
+            } else {
+                var range = jQuery.parseJSON(jQuery('#phpr_report_date_search_input').val());
+                jQuery('#report_date_interval_text').html(range.start + ' - ' + range.end);
+            }
+        }
+
+        function update_report(){
+            return <?= $report_form ?>.phpr().post('<?= $this->get_event_handler('on_report_date_search') ?>', {
+                update: '#<?= $this->report_get_container_id() ?>',
+                data: {
+                    date_interval: jQuery('#phpr_report_date_search_input').val()
+                },
+                success: function() {
+                    jQuery('#<?= $this->report_get_container_id() ?>').trigger('reportUpdated');
+                    update_date_display();
+                },
+                loadIndicator: {
+                    injectInElement: true,
+                    element: '#<?= $this->report_get_container_id() ?>',
+                    src: '<?= $report_load_indicator ?>',
+                    hideOnSuccess: true
+                }
+            }).send();
+        }
+
+        jQuery("#report_date_search_trigger").click(function () { jQuery("#phpr_report_date_search_input").daterangepicker("open"); return false; });
+
+    });
+
+</script>
+
+<div style="clear:right;"></div>

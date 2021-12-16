@@ -1,0 +1,28 @@
+<tr>
+
+	
+	<?
+		$head_cb_option_set = isset($this->report_options['report_custom_head_cells']);
+
+		if ($this->report_custom_head_cells !== false || $head_cb_option_set) {
+
+			if (!strlen($this->report_custom_head_cells) && !$head_cb_option_set) {
+				$this->report_render_partial('report_head_front_cells', array(), false);
+			}
+			else {
+				if (!$head_cb_option_set && strlen($this->report_custom_head_cells)) {
+					$this->render_partial($this->report_custom_head_cells, null, true, true);
+				}
+				else if (strlen($this->list_options['report_custom_head_cells'])) {
+					$this->render_partial($this->report_options['report_custom_head_cells'], null, true, true);
+				}
+			}
+		}
+	?>
+	
+	<? foreach ($report_data->get_columns() as $row_count => $column_data): ?>
+		<th class="<?=$column_data['class'] ?> ">
+				<?= $column_data['title'] ?>
+		</th>
+	<? endforeach ?>
+</tr>

@@ -1,0 +1,10 @@
+<div class="clear"></div>
+<div class="offsetTop">
+	<?
+		$options = array();
+		if ($this->report_control_panel_partial)
+			$options['report_control_panel'] = $this->report_control_panel_partial;
+	?>
+
+	<? $this->reportRender($options) ?>
+</div>

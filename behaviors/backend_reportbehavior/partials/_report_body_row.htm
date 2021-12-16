@@ -1,0 +1,57 @@
+<?
+	$url = $row['options']['url'];
+?>
+
+<tr class="<?= $row['options']['class']?>">
+
+	<?
+		$body_cb_option_set = isset($this->report_options['report_custom_body_cells']);
+		if ($this->report_custom_body_cells !== false || $body_cb_option_set)
+		{
+			if (!strlen($this->report_custom_body_cells) && !$body_cb_option_set)
+				$this->report_render_partial('report_body_front_cells', array('row'=>$row, 'url'=>$url), false);
+			else
+			{
+				if (!$body_cb_option_set && strlen($this->report_custom_body_cells))
+					$this->render_partial($this->report_custom_body_cells, array('row'=>$row), true, true);
+				elseif (strlen($this->report_options['report_custom_body_cells']))
+					$this->render_partial($this->report_options['report_custom_body_cells'], array('row'=>$row), true, true);
+			}
+		}
+	?>
+
+	<? foreach ($report_data->get_columns() as $column_count => $column_data): ?>
+		<?
+			$field = $row['fields'][$column_data['id']];
+			$cell_style = null;
+			if ($this->list_display_as_tree && $list_tree_level > 0 && $index == 0)
+				$cell_style = 'style="padding-left: '.(20*$list_tree_level).'px"';
+				
+			$cell_on_click_handler = null;
+			if ($url)
+				$cell_on_click_handler = "if (event.which != 2) window.location.href = '".$url."'";
+
+		?>
+		<td class="<?= $field['class']?> <?=$url ? 'link' : null ?>" <?=$cell_on_click_handler ?>>
+			<?
+				if (!array_key_exists($column_data['id'], $this->report_cell_individual_partial)):
+			?>
+				<?
+					if ($this->report_cell_partial !== false)
+					{
+						if (!strlen($this->report_cell_partial))
+							$this->list_render_partial('report_cell_partial', array('row'=>$row, 'index'=>$column_data['id'], 'column'=>$column_data, 'url'=>$url), false);
+						else
+							$this->render_partial($this->report_cell_partial, array('row'=>$row, 'index'=>$column_data['id'], 'column'=>$column_data, 'url'=>$url), true, true);
+					}
+				?>
+			
+				<? if ($url): ?><a <?=$on_click ?> href="<?=$url.'?'.uniqid() ?>"><? endif ?>
+					<?=h($field['value']) ?>
+				<? if ($url): ?></a><? endif ?>
+			<? else: ?>
+				<? $this->render_partial($this->report_cell_individual_partial[$column_data['id']], array('row'=>$row, 'index'=>$column_data['id'], 'column'=>$column_data, 'url'=>$url)) ?>
+			<? endif ?>
+		</td>
+	<? endforeach ?>
+</tr>

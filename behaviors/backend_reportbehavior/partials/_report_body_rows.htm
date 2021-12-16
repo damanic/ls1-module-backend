@@ -1,0 +1,14 @@
+<? 
+	foreach ($report_data->get_rows() as $row_count => $row)
+	{
+		$this->report_before_display_row($row);
+		Phpr::$events->fire_event('backend:on_before_report_record_display', $this, $report_data, $row);
+
+		if($this->report_data_context == 'pdf'){
+			if(strstr($row['options']['class'], 'heading')){
+			$this->report_render_partial('report_body_spacer_row');
+			}
+		}
+		$this->report_render_partial('report_body_row', array('row'=>$row));
+	}
+?>

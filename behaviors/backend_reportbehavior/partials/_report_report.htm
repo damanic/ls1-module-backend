@@ -1,0 +1,22 @@
+<?php  if($this->report_data_context == 'pdf'): ?>
+<? $this->report_render_partial('report_body_pdf_css') ?>
+<? endif;?>
+<div style="overflow: auto;" >
+<table class="simpleList <?= $this->report_data_context ? $this->report_data_context.'-table' : null ?>">
+	<thead class="sortable">
+		<? $this->report_render_partial('report_head_rows') ?>
+	</thead>
+	<tbody id="<?= $this->report_get_container_id().'_body' ?>">
+		<? if (is_object($report_data) && !$report_data->get_row_count()): ?>
+			<tr class="no-data">
+				<td colspan="<?= $report_column_count+5 ?>"><?= h($report_no_data_message) ?></td>
+			</tr>
+		<? else: ?>
+			<? $this->report_render_partial('report_body_rows') ?>
+		<? endif ?>
+	</tbody>
+</table>
+
+<input type="hidden" class="report_load_indicator" value="<?= $report_load_indicator ?>"/>
+<input type="hidden" name="report_name" value="<?= $this->report_name ?>"/>
+</div>
