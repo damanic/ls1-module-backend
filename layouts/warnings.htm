@@ -1,20 +1,4 @@
 <?
-	$file = @file_get_contents(PATH_APP.'/modules/shop/models/shop_order.php');
-
-	$dev_edition = strlen($file) && strpos($file,'consider ordering a commercial license') !== false;
-
-	$license_key = Db_ModuleParameters::get('core', 'license_key');
-	
-	if ($license_key && $dev_edition):
-?>
-	<div class="system_message_container">
-		<div class="limited_version_message">
-			<a href="https://lemonstand.com/myaccount/order-license-by-key/<?= $license_key ?>">You're using a limited developer's version of LemonStand. Click here to upgrade to a commercial version if you're ready to go live and start taking orders.</a>
-		</div>
-	</div>
-<? endif ?>
-
-<?
 	$email_configured = System_EmailParams::isConfigured();
 	$uploaded_writable = is_writable(PATH_APP.'/uploaded') && is_writable(PATH_APP.'/uploaded/thumbnails') && is_writable(PATH_APP.'/uploaded/public');
 	$temp_writable = is_writable(PATH_APP.'/temp');

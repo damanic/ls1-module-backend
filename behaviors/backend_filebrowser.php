@@ -416,7 +416,7 @@
 			} catch (Exception $ex)
 			{
 				@copy(
-					PATH_APP.'/modules/cms/resources/images/error_thumb.jpg', 
+					PATH_APP.'/modules/backend/resources/images/error_thumb.jpg',
 					PATH_APP.'/uploaded/thumbnails/'.$errThumbName);
 					
 				return $errFileUrl;

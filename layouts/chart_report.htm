@@ -6,10 +6,8 @@
 		<? $this->renderLayout('config_urls') ?>
 		<? $this->renderLayout('config_js_engine') ?>
 		<link rel="stylesheet" href="modules/backend/resources/css/backend.css?<?= module_build('backend') ?>" type="text/css"/>
-		<link rel="stylesheet" href="modules/backend/resources/css/print.css?<?= module_build('backend') ?>" type="text/css" media="print"/>
-		<link rel="stylesheet" href="phproad/resources/css/phproad.css?<?= module_build('core') ?>" type="text/css"/>
 		<?= Phpr_View::includeJavaScript() ?>
-		<link rel="stylesheet" href="phproad/modules/db/behaviors/db_formbehavior/resources/css/forms.css?<?= module_build('core') ?>" type="text/css"/>
+		<link rel="stylesheet" href="modules/backend/resources/css/forms.css?<?= module_build('backend') ?>" type="text/css"/>
 
 		<script type="text/javascript" src="modules/backend/resources/javascript/jquery.js?<?= module_build('backend') ?>"></script>
 		<script type="text/javascript">jQuery.noConflict();</script>

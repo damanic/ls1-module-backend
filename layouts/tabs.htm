@@ -1,17 +1,5 @@
 <?
 	$menu_mode = Backend_AppearanceConfiguration::create()->menu_style;
-	
-	$path = PATH_APP.'/phproad/thirdpart/mobile-detect/Mobile_Detect.php';
-	$is_touch = false;
-	if (file_exists($path))
-	{
-		require($path);
-		$detect = new Mobile_Detect();
-		$is_touch = $detect->isMobile() || $detect->isTablet();
-		Phpr::$session->set('BACKEND_IS_TOUCH', $is_touch);
-		if ($is_touch)
-			$menu_mode = 'two-level';
-	}
 
 	$module_id = $this->app_module ? $this->app_module : Phpr::$router->param('module');
 	$currentTab = Core_ModuleManager::findTab($module_id, $this->app_tab);
