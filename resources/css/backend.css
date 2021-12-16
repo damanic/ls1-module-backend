@@ -1246,7 +1246,7 @@ div.button ul li,
 div.button ul li a {
   float: none;
   display: block;
-  display: relative;
+  position: relative;
   background: #336699;
   line-height: 145%;
 }
@@ -1919,7 +1919,7 @@ div.toolbar + table.simpleList {
   margin-top: -8px;
 }
 div.toolbar.listToolbar {
-  margin-bottom: 7pxl;
+  margin-bottom: 7px;
 }
 div.toolbar .menu {
   position: relative;
@@ -4375,4 +4375,116 @@ div.inline_details table th {
 }
 .ie .main_menu_wrapper {
   width: 400px;
+}
+/*
+ * Common PHP Road classes
+ */
+.dashSeparator {
+  background: transparent url('../images/border_dashed_hor.gif') repeat-x bottom left;
+  margin-bottom: 1.2em;
+}
+.clear {
+  clear: both;
+}
+.hidden {
+  display: none!important;
+}
+.invisible {
+  visibility: hidden!important;
+}
+/*
+ * Size selectors
+ */
+.medium {
+  width: 300px;
+}
+.large {
+  width: 500px;
+}
+/*
+ * Popup forms
+ */
+.overlay {
+  background-color: #000;
+}
+.popupLoading {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  background: #ddd url('../images/form_load_70x70.gif') no-repeat center center;
+}
+.popupForm {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.popupForm h2 {
+  color: #333;
+  font-weight: normal;
+  background: #ccc;
+}
+.popupForm .content {
+  padding: 1em;
+}
+.popupForm form {
+  position: relative;
+}
+/*
+ * Simple list - list
+ */
+ul.simpleList {
+  font-size: 1.2em;
+  line-height: 150%;
+  padding-bottom: 0.9em;
+}
+ul.simpleList li {
+  display: block;
+  color: #333;
+  padding-bottom: 0.3em;
+}
+ul.checkboxes li label {
+  display: inline!important;
+  font-size: 1em!important;
+  font-weight: normal!important;
+}
+ul.checkboxes li input {
+  width: auto!important;
+  margin-right: 0.5em;
+  margin-top: 3px;
+  margin-left: 0;
+  float: left;
+}
+/*
+ * Sortables
+ */
+ul.sortable li {
+  cursor: pointer;
+}
+ul.sortable li.drag {
+  color: #F60;
+}
+ul.sortable li label {
+  cursor: pointer;
+}
+/*
+ * Search control
+ */
+div.searchControl {
+  position: relative;
+  width: 250px;
+}
+div.searchControl input {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+div.searchControl.inactive input {
+  color: #999 !important;
 }

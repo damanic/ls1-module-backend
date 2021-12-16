@@ -2,25 +2,25 @@
  * Engine configuration
  */
 
-var core_module_build = 0;
+var backend_module_build = 0;
 
 /*
  * Preload load indicator images
  */
 
-new Asset.image(ls_root_url('phproad/resources/images/form_load_70x70.gif'));
-new Asset.image(ls_root_url('phproad/resources/images/form_load_50x50.gif'));
-new Asset.image(ls_root_url('phproad/resources/images/form_load_30x30.gif'));
-new Asset.image(ls_root_url('phproad/resources/images/form_load_40x40.gif'));
-new Asset.image(ls_root_url('phproad/resources/images/form_load_100x100.gif'));
+new Asset.image(ls_root_url('modules/backend/resources/images/form_load_70x70.gif'));
+new Asset.image(ls_root_url('modules/backend/resources/images/form_load_50x50.gif'));
+new Asset.image(ls_root_url('modules/backend/resources/images/form_load_30x30.gif'));
+new Asset.image(ls_root_url('modules/backend/resources/images/form_load_40x40.gif'));
+new Asset.image(ls_root_url('modules/backend/resources/images/form_load_100x100.gif'));
 new Asset.image(ls_root_url('/modules/backend/resources/images/loading_global.gif'));
 
-new Asset.image(ls_root_url('/phproad/resources/images/tree_expand.gif'));
-new Asset.image(ls_root_url('/phproad/resources/images/tree_collapse.gif'));
-new Asset.image(ls_root_url('/phproad/resources/images/tree_no_expand.gif'));
+new Asset.image(ls_root_url('/modules/backend/resources/images/tree_expand.gif'));
+new Asset.image(ls_root_url('/modules/backend/resources/images/tree_collapse.gif'));
+new Asset.image(ls_root_url('/modules/backend/resources/images/tree_no_expand.gif'));
 
-new Asset.image(ls_root_url('/phproad/modules/db/behaviors/db_formbehavior/resources/images/onoff_on.gif'));
-new Asset.image(ls_root_url('/phproad/modules/db/behaviors/db_formbehavior/resources/images/onoff_off.gif'));
+new Asset.image(ls_root_url('/modules/backend/resources/images/onoff_on.gif'));
+new Asset.image(ls_root_url('/modules/backend/resources/images/onoff_off.gif'));
 
 /*
  * Define backend-wide load indicator and AJAX request defaults
@@ -33,7 +33,7 @@ Element.implement({
 			overlayClass: 'formOverlay',
 			pos_x: 'center',
 			pos_y: 'center',
-			src: ls_root_url('/phproad/resources/images/form_load_70x70.gif'),
+			src: ls_root_url('/modules/backend/resources/images/form_load_70x70.gif'),
 			injectInElement: false,
 			noImage: false,
 			z_index: 9999,

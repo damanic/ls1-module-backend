@@ -73,7 +73,7 @@ window.addEvent('domready', function(){
 		$('Backend_CodeEditorConfiguration_color_theme').addEvent('change', function(){
 			var value = this.get('value');
 			
-			Asset.javascript(ls_root_url('phproad/thirdpart/ace/theme-'+value+'.js'), {onload: function() {
+			Asset.javascript(ls_root_url('modules/backend/thirdpart/ace/theme-'+value+'.js'), {onload: function() {
 				editor.setTheme('ace/theme/'+value);
 			}.bind(this)});
 		})

@@ -1,4 +1,4 @@
-@import "../../../../phproad/resources/css/common.less";
+@import "common.less";
 
 @menu-border: 1px solid rgba(255,255,255,0.2);
 .selected-gradient {.vertical-gradient(#5791e0, #2865c1);}
@@ -1200,7 +1200,7 @@ div.button {
 	ul li, ul li a {
 		float: none;
 		display: block;
-		display: relative;
+		position: relative;
 		background: #336699;
 		line-height: 145%;
 	}
@@ -1726,7 +1726,7 @@ div.toolbar {
 	}
 
 	+ table.simpleList {margin-top: -8px;}
-	&.listToolbar {margin-bottom: 7pxl}
+	&.listToolbar {margin-bottom: 7px}
 
 	.menu {
 		position: relative;
@@ -4188,4 +4188,115 @@ div.inline_details {
 	.main_menu_wrapper {
 		width:400px;
 	}
+}
+
+
+
+/*
+ * Common PHP Road classes
+ */
+
+.dashSeparator {
+	background: transparent url('../images/border_dashed_hor.gif') repeat-x bottom left;
+	margin-bottom: 1.2em;
+}
+
+.clear {clear: both;}
+.hidden {display: none!important;}
+.invisible {visibility: hidden!important;}
+
+/*
+ * Size selectors
+ */
+
+.medium {width: 300px;}
+.large {width: 500px;}
+
+/*
+ * Popup forms
+ */
+
+.overlay {background-color: #000;}
+
+.popupLoading {
+	.round(5px);
+	width: 100px;
+	height: 100px;
+	background: #ddd url('../images/form_load_70x70.gif') no-repeat center center;
+}
+
+.popupForm {
+	.round(5px);
+	background-color: #fff;
+
+	h2 {
+		color: #333;
+		font-weight: normal;
+		background: #ccc;
+	}
+
+	.content {padding: 1em;}
+	form {position: relative;}
+}
+
+/*
+ * Simple list - list
+ */
+
+ul.simpleList {
+	font-size: 1.2em;
+	line-height: 150%;
+	padding-bottom: 0.9em;
+
+	li {
+		display: block;
+		color: #333;
+		padding-bottom: 0.3em;
+	}
+}
+
+ul.checkboxes li {
+	label {
+		display: inline!important;
+		font-size: 1em!important;
+		font-weight: normal!important;
+	}
+
+	input {
+		width: auto!important;
+		margin-right: 0.5em;
+		margin-top: 3px;
+		margin-left: 0;
+		float: left;
+	}
+}
+
+/*
+ * Sortables
+ */
+
+ul.sortable {
+	li {
+		cursor: pointer;
+		&.drag {color: #F60;}
+		label {cursor: pointer;}
+	}
+
+}
+
+/*
+ * Search control
+ */
+
+div.searchControl {
+	position: relative;
+	width: 250px;
+
+	input {
+		.box-inside();
+		width: 100%;
+		display: block;
+	}
+
+	&.inactive input {color: #999!important;}
 }

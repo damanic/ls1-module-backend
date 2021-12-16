@@ -1,6 +1,4 @@
-@import "../../../../phproad/resources/css/common.less";
-
-#header, 
+#header,
 #footer, 
 #module_tabs_wrapper, 
 #header_tabs,
@@ -21,7 +19,9 @@ body.printLayout {
 
 body.printLayout #content {
 	margin: 0!important;
-	.hide-shadow();
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 
 div.print_sheet {
