@@ -44,7 +44,6 @@
 			$this->addJavaScript('/modules/backend/resources/javascript/datepicker.js?'.module_build('backend'));
 			$this->addCss('/modules/backend/resources/css/datepicker.css?'.module_build('backend'));
 			$this->addCss('/modules/backend/resources/css/reports.css?'.module_build('backend'));
-			$this->addCss('/modules/backend/resources/css/list.css?'.module_build('backend'));
 			parent::__construct();
 			$this->layout = PATH_APP . '/modules/backend/layouts/report.htm';
 			$this->app_tab = 'reports';
