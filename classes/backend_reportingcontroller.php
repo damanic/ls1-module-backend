@@ -20,7 +20,7 @@
 		public $list_name = null;
 		public $list_no_setup_link = false;
 		public $list_options = array();
-		public $list_control_panel_partial = PATH_APP . '/modules/backend/layouts/report_list_control_panel.htm';
+		public $list_control_panel_partial = null;
 
 		protected $settingsDomain = 'dashboard';
 		
@@ -48,6 +48,7 @@
 			$this->layout = PATH_APP . '/modules/backend/layouts/report.htm';
 			$this->app_tab = 'reports';
 			$this->app_module = 'backend';
+			$this->list_control_panel_partial = PATH_APP . '/modules/backend/layouts/report_list_control_panel.htm';
             Backend::$events->fireEvent('backend:onExtendReportingController', $this);
 		}
 
