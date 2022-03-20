@@ -19,7 +19,7 @@
 		public function __construct($controller)
 		{
 			parent::__construct($controller);
-			
+
 			if ($this->_controller->filebrowser_default_dirs)
 			{
 				$resources_path = Cms_SettingsManager::get()->resources_dir_path;
@@ -32,7 +32,7 @@
 						$theme_resources_path = 'themes/'.$theme->code.'/resources';
 
 						$this->_controller->filebrowser_dirs[$theme_resources_path] = array(
-							'path'=>'/'.$theme_resources_path, 
+							'path'=>'/'.$theme_resources_path,
 							'root_upload'=>true,
 							'title'=>'Theme resources directory'
 						);
@@ -45,9 +45,9 @@
 			$this->addEventHandler('onFileBrowserInsertImage');
 			$this->addEventHandler('onFileBrowserInsertLink');
 			$this->addEventHandler('onLoadResourceUploader');
-			
+
 			$this->addEventHandler('onFileBrowserInsertImageProcess');
-			
+
 			$this->addEventHandler('onAddAdditionalCmsFiles');
 
 			$this->hideAction('filebrowserGetFileThumb');
@@ -69,11 +69,11 @@
 		 * Renders the file browser
 		 */
 		public function filebrowserRender()
-		{ 
+		{
 			$path = Db_UserParameters::get($this->browserGetName().'_path');
 			if (strlen($path) && !file_exists(PATH_APP.$path))
 				$path = null;
-				
+
 			$test_path = str_replace('\\', '/', $path);
 			$path_is_valid = false;
 			foreach ($this->_controller->filebrowser_dirs as $dir_info)
@@ -88,10 +88,10 @@
 					break;
 				}
 			}
-			
+
 			if (!$path_is_valid)
 				$path = null;
-			
+
 			$this->prepareFileList($path);
 			$this->renderPartial('file_browser');
 		}
@@ -117,7 +117,7 @@
 				Phpr::$response->ajaxReportException($ex, true, true);
 			}
 		}
-		
+
 		public function onFileBrowserSetViewMode()
 		{
 			try
@@ -130,7 +130,7 @@
 				Phpr::$response->ajaxReportException($ex, true, true);
 			}
 		}
-		
+
 		public function onFileBrowserInsertImage()
 		{
 			try
@@ -155,7 +155,7 @@
 
 			$this->renderPartial('insert_image_form');
 		}
-		
+
 		public function onFileBrowserInsertLink()
 		{
 			try
@@ -169,7 +169,7 @@
 
 			$this->renderPartial('insert_link_form');
 		}
-		
+
 		public function onFileBrowserInsertImageProcess()
 		{
 			try
@@ -220,7 +220,7 @@
 		 * Private methods - used by the behavior
 		 *
 		 */
-		
+
 		protected function prepareFileList($path)
 		{
 			$files = array();
@@ -231,34 +231,34 @@
 			if (!strlen($path))
 			{
 				$dir_num = count($this->_controller->filebrowser_dirs);
-				
+
 				if ($dir_num > 1)
 				{
 					foreach ($this->_controller->filebrowser_dirs as $alias=>$dir_info)
 						$files[] = (object)array('type'=>'folder', 'name'=>$alias, 'path'=>$dir_info['path'], 'title'=>(isset($dir_info['title']) ? $dir_info['title'] : null));
-						
+
 					$display_path = 'please select a directory...';
 				} elseif ($dir_num == 1)
 				{
 					$dirs = array_values($this->_controller->filebrowser_dirs);
 					$dir_info = $dirs[0];
-					
+
 					$this->listFolderContent($dir_info['path'], $files);
 					$current_path = $display_path = $dir_info['path'];
 					$allow_upload = array_key_exists('root_upload', $dir_info) ? $dir_info['root_upload'] : true;
 				}
 			} else {
 				$files[] = (object)array('type'=>'up', 'name'=>'Level up...', 'path'=>dirname($path));
-				
+
 				$additional_cms_files = Backend::$events->fireEvent('backend:onAddAdditionalCmsFiles', $path);
 				if ( !empty($additional_cms_files[0]) )
 				{
 					foreach($additional_cms_files[0] as $key=>$val)
 					{
 						$files[] = $val;
-					}	
+					}
 				}
-				
+
 				$this->listFolderContent($path, $files);
 				$current_path = $display_path = $path;
 				$allow_upload = true;
@@ -273,7 +273,7 @@
 
 			$this->viewData['filebrowser_viewmode'] = $view_mode;
 		}
-		
+
 		private function listFolderContent($folder, &$result)
 		{
 			if (!strlen($folder))
@@ -292,7 +292,7 @@
 					$file_path = $folder.'/'.$file;
 
 					$dir = is_dir(PATH_APP.$file_path);
-					if (!is_file(PATH_APP.$file_path) && !$dir || $file{0} == '.')
+					if (!is_file(PATH_APP.$file_path) && !$dir || substr($file, 0, 1) == '.')
 						continue;
 
 					if (!$dir)
@@ -320,13 +320,13 @@
 			foreach ($files as $file)
 				$result[] = $file;
 		}
-		
+
 		private function pathValidated($path, $strict = true)
 		{
 			$path = str_replace('\\', '/', $path);
 			if (strpos('..', $path) !== false)
 				return null;
-				
+
 			if (!$strict)
 				return $path;
 
@@ -334,41 +334,41 @@
 			foreach ($this->_controller->filebrowser_dirs as $alias=>$dir_info)
 			{
 				$dir = $dir_info['path'];
-				
+
 				$pos = strpos($path, $dir);
 				if ($pos !== false && $pos === 0)
 				{
 					if ($path == $dir && $cnt == 1)
 						return null;
-					
+
 					return $path;
 				}
 			}
-			
+
 			return null;
 		}
-		
+
 		private function browserGetName()
 		{
 			return get_class($this->_controller).'_'.Phpr::$router->action.'_filebrowser';
 		}
-		
+
 		private function setFolderViewMode($path, $mode)
 		{
 			$param_name = $this->browserGetName().'_viewmode';
-			
+
 			$view_modes = Db_UserParameters::get($param_name, null, array());
 			$view_modes[$path] = $mode;
-			
+
 			Db_UserParameters::set($param_name, $view_modes);
 		}
-		
+
 		private function getFolderViewMode($path)
 		{
 			$view_modes = Db_UserParameters::get($this->browserGetName().'_viewmode', null, array());
 			if (!array_key_exists($path, $view_modes))
 				return 'list';
-				
+
 			return $view_modes[$path];
 		}
 
@@ -384,12 +384,12 @@
 			echo '>>file_browser_toolbar<<';
 			$this->renderPartial('toolbar');
 		}
-		
+
 		public function filebrowserGetFileThumb($path, $width = 50, $height = 35)
 		{
 			$pathInfo = pathinfo($path);
 			$ext = isset($pathInfo['extension']) ? strtolower($pathInfo['extension']) : null;
-			
+
 			$isImage = in_array($ext, array('jpg', 'jpeg', 'gif', 'png'));
 
 			if (!$isImage)
@@ -399,7 +399,7 @@
 			$fileUrl = '/uploaded/thumbnails/'.$thumbName;
 			if (file_exists(PATH_APP.$fileUrl))
 				return $fileUrl;
-				
+
 			$errThumbName = Phpr_Image::createThumbnailName($path, $width, $height, 'keep_ratio_err');
 			$errFileUrl = '/uploaded/thumbnails/'.$errThumbName;
 
@@ -411,25 +411,25 @@
 			try
 			{
 				Phpr_Image::makeThumbnail(
-					PATH_APP.$path, 
+					PATH_APP.$path,
 					PATH_APP.'/uploaded/thumbnails/'.$thumbName, $width, $height, false, 'keep_ratio');
 			} catch (Exception $ex)
 			{
 				@copy(
 					PATH_APP.'/modules/backend/resources/images/error_thumb.jpg',
 					PATH_APP.'/uploaded/thumbnails/'.$errThumbName);
-					
+
 				return $errFileUrl;
 			}
 
 			return $fileUrl;
 		}
-		
+
 		public function filebrowserGetUploadUrl($path)
 		{
 			$url = Backend_Html::controllerUrl();
 			$url = substr($url, 0, -1);
-			
+
 			$parts = array(
 				$url,
 				'filebrowser_file_upload',
@@ -439,14 +439,14 @@
 
 			return implode('/', $parts);
 		}
-		
+
 
 		public function onLoadResourceUploader()
 		{
 			$this->viewData['file_path'] = post('dir');
 			$this->renderPartial('upload_form');
 		}
-		
+
 		public function filebrowser_file_upload($ticket, $path)
 		{
 			$this->_controller->suppressView();
@@ -468,7 +468,7 @@
 						'/'.Cms_SettingsManager::get()->resources_dir_path,
 						'/themes'
 					);
-					
+
 					$allowed = false;
 					foreach ($allowed_dirs as $dir)
 					{
@@ -479,23 +479,23 @@
 							break;
 						}
 					}
-					
+
 					if (!$allowed)
 						throw new Phpr_ApplicationException('Uploading files into this directory is not allowed.');
-					
+
 					$path = PATH_APP.$pathValidated;
 					if (!is_writable($path))
 						throw new Phpr_ApplicationException('Directory is not writable.');
-					
+
 					$destPath = $path.'/'.$_FILES['file']['name'];
-					
+
 					if (!file_exists($destPath) || post('override_files'))
 					{
 						if ( !@move_uploaded_file($_FILES['file']["tmp_name"], $destPath) )
 							throw new Phpr_SystemException( "Error copying file to $destPath." );
 					} else
 						throw new Phpr_ApplicationException('File already exists.');
-						
+
 					Backend::$events->fireEvent('backend:onAfterFileBrowserUpload', $destPath);
 				}
 
@@ -506,7 +506,7 @@
 				$result['result'] = 'failed';
 				$result['error'] = $ex->getMessage();
 			}
-			
+
 			header('Content-type: application/json');
 			echo json_encode($result);
 		}
@@ -515,9 +515,9 @@
 		{
 			Phpr_Image::deleteImageThumbnails($path);
 		}
-		
+
 		/**
-		 * Triggered after a file is uploaded in the back-end file browser. 
+		 * Triggered after a file is uploaded in the back-end file browser.
 		 * @event backend:onAfterFileBrowserUpload
 		 * @see cms:onAfterResourceFileUpload
 		 * @package backend.events
@@ -525,7 +525,7 @@
 		 * @param string $dest_path Specifies the file path on the server
 		 */
 		private function event_onAfterFileBrowserUpload($dest_path) {}
-			
+
 		/**
 		 * Allows to inject files to the built-in file browser.
 		 * @event backend:onAddAdditionalCmsFiles
@@ -537,12 +537,12 @@
 		 */
 		private function event_onAddAdditionalCmsFiles($folder_path) {}
 	}
-	
+
 	function backend_filebrowser_sort_files($a, $b)
 	{
 		if ($a->time == $b->time)
 			return 0;
-			
+
 		return $a->time < $b->time ? 1 : -1;
 	}
 
