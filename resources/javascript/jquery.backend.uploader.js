@@ -1,12 +1,12 @@
 
 /**
- * Sortable class
+ * Backend Uploader
  */
 
 ;(function ($, window, document, undefined) {
 
 	$.widget("backend.uploader", {
-		version: '1.0.0',
+		version: '1.0.1',
 		options: { 
 			url: null,
 			fieldName: 'file',
@@ -42,8 +42,8 @@
 		},
 
 		_bind_uploader: function() {
-			var self = this;
-			var uploaderOptions = {
+			let self = this;
+			let uploaderOptions = {
 				start: $.proxy(self.onUploadStart, self),
 				done: $.proxy(self.onUploadComplete, self),
 				progressall: $.proxy(self.onUploadProgress, self),
@@ -74,7 +74,7 @@
 			this.inputField.fileupload(uploaderOptions);
 		},
 
-		_bind_trigger: function() { var self = this;
+		_bind_trigger: function() { let self = this;
 			self.inputField = self.element.find('input[type="file"]:first');			
 			if (self.triggerElement.length > 0) {
 				self.triggerElement.off('click').on('click', function() { 
@@ -84,7 +84,7 @@
 		},
 
 		_create_input_field: function() {
-			var field = $('<input />').attr({
+			let field = $('<input />').attr({
 				type: 'file',
 				multiple: true,
 				name: this.options.fieldName
@@ -97,7 +97,7 @@
 			return field;
 		},
 
-		_toggle_progress_bar: function(is_show) { var self = this;
+		_toggle_progress_bar: function(is_show) { let self = this;
 			if (is_show) {
 				self.progressBar.css('width', '0%').parent().fadeTo(500, 1);
 				self.triggerElement.fadeTo(250, 0);
@@ -116,7 +116,15 @@
 
 		onUploadFail: function(event, data) {
 			this._toggle_progress_bar(false);
-			alert('Error uploading file: ' + data.errorThrown);
+			let error = data.errorThrown;
+			let request = data.hasOwnProperty('jqXHR') ? data.jqXHR : false;
+			if(request && request.hasOwnProperty('responseJSON')){
+				let responseJson = request.responseJSON;
+				if(responseJson.hasOwnProperty('error')){
+					error = responseJson.error;
+				}
+			}
+			alert('Error uploading file: ' + error);
 			this.options.onUploadFail && this.options.onUploadFail();
 		},
 		
@@ -127,7 +135,7 @@
 		},
 
 		onUploadProgress: function(event, data) {
-    		var progress = parseInt(data.loaded / data.total * 100, 10);
+			let progress = parseInt(data.loaded / data.total * 100, 10);
     		this.progressBar.css('width', progress + '%');
 		},
 
