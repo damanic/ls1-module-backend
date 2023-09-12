@@ -1,9 +1,3 @@
-1/*
- * Engine configuration
- */
-
-var backend_module_build = 0;
-
 /*
  * Preload load indicator images
  */
@@ -1201,13 +1195,10 @@ var Backend_ScrollabeToolbar = new Class({
 		this.scroll_left = this.toolbar.getElement('.scroll_left');
 		this.scroll_right = this.toolbar.getElement('.scroll_right');
 
-		this.resize_toolbar();
-
 		this.scroll_right.addEvent('mouseenter', this.scroll_toolbar_right);
 		this.scroll_left.addEvent('mouseenter', this.scroll_toolbar_left);
 		this.scroll_right.addEvent('mouseleave', this.stop_scrolling);
 		this.scroll_left.addEvent('mouseleave', this.stop_scrolling);
-		window.addEvent('resize', this.resize_toolbar);
 	},
 
 	detach: function()
@@ -1581,103 +1572,78 @@ function backend_style_forms()
 			select.chosen(options);
 		}
 	});
-	
-	jQuery('input[type=checkbox]').each(function(){
-		if (!this.styled)
-		{
-			this.styled = true;
-			
-			var 
-				self = $(this),
-				replacement = new Element('div', {'class': 'checkbox', 'tabindex': 0}),
-				handle_click = function() {
-					/* 
-					 * Update the checkbox state and execute the checbox onclick and onchange handlers
-					 */ 
 
-					self.checked = !self.checked;
-					if (self.onclick !== undefined && self.onclick)
-						self.onclick();
+	//Adds styled pseudo-checkboxes
+	jQuery('input[type=checkbox]').not('.styled').each(function () {
 
-					if (self.onchange !== undefined && self.onchange)
-						self.onchange();
-
-					/* 
-					 * Fire MooTools events.
-					 */
-
-					self.fireEvent('click');
-					self.fireEvent('change');
-				},
-				update_replacement_status = function() {
-					if (self.checked)
-						replacement.addClass('checked');
-					else
-						replacement.removeClass('checked');
-				};
-			
-			self.addClass('hidden');
-			if (this.checked)
-				replacement.addClass('checked');
-
-			if (this.disabled)
-				replacement.addClass('disabled');
-				
-			replacement.addEvent('keydown', function(ev){
-				if (!replacement.hasClass('disabled'))
-				{
-					var event = new Event(ev);
-
-					if (event.code == 32 || event.code == 13)
-					{
-						if (!ev.control)
-						{
-							handle_click();
-							ev.stopPropagation();
-							return false;
-						}
-					}
+		let checkbox = jQuery(this),
+			pseudoCheckbox = jQuery('<div>', {
+				'class': 'checkbox',
+				'tabindex': 0
+			}),
+			updatePseudoCheckbox = function () {
+				if (checkbox.prop('checked')) {
+					pseudoCheckbox.addClass('checked');
+				} else {
+					pseudoCheckbox.removeClass('checked');
 				}
-			});
-			
-			self.addEvent('change', function(){
-				if (replacement.hasClass('disabled'))
-					return;
-
-				update_replacement_status();
-			});
-
-			self.addEvent('change_status', function(){
-				update_replacement_status();
-			});
-			
-			self.addEvent('enable', function(){
-				self.disabled = false;
-				replacement.removeClass('disabled');
-			});
-
-			self.addEvent('disable', function(){
-				replacement.addClass('disabled');
-			});
-			
-			replacement.addEvent('click', function(ev) {
-				if (!replacement.hasClass('disabled'))
-				{
-					handle_click();
-
-					var event = new Event(ev);
-					ev.stopPropagation();
-					return false;
+			},
+			onPseudoCheckboxClicked = function () {
+				let targetState = !checkbox.prop('checked');
+				checkbox.trigger('click')
+				if (checkbox.prop('checked') !== targetState) {
+					checkbox.prop('checked', targetState);
+					checkbox.trigger('change');
 				}
-			});
-			
-			jQuery(replacement).bind('dblclick', function(ev){
+			};
+
+		checkbox.addClass('hidden styled');
+		pseudoCheckbox.insertBefore(checkbox);
+
+		if (this.disabled) {
+			pseudoCheckbox.addClass('disabled');
+		} else {
+			updatePseudoCheckbox();
+		}
+
+		pseudoCheckbox.on('keydown', function (ev) {
+			if (!pseudoCheckbox.hasClass('disabled') && (ev.keyCode == 32 || ev.keyCode == 13) && !ev.ctrlKey) {
+				onPseudoCheckboxClicked();
 				ev.stopPropagation();
 				return false;
-			});
+			}
+		});
 
-			replacement.inject(self, 'before');
-		}
+		checkbox.on('change', function () {
+			console.log("Change event triggered!");
+			if (!pseudoCheckbox.hasClass('disabled')) {
+				updatePseudoCheckbox();
+			}
+		});
+
+		// May not need the next two if they were custom MooTools events
+		checkbox.on('change_status', updatePseudoCheckbox);
+		checkbox.on('enable', function () {
+			checkbox.prop('disabled', false);
+			pseudoCheckbox.removeClass('disabled');
+		});
+		checkbox.on('disable', function () {
+			pseudoCheckbox.addClass('disabled');
+		});
+
+		pseudoCheckbox.on('click', function (ev) {
+			if (!pseudoCheckbox.hasClass('disabled')) {
+				onPseudoCheckboxClicked();
+				ev.stopPropagation();
+				return false;
+			}
+		});
+
+		pseudoCheckbox.on('dblclick', function (ev) {
+			ev.stopPropagation();
+			return false;
+		});
+
 	});
 };
 
