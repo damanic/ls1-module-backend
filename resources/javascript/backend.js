@@ -1199,6 +1199,9 @@ var Backend_ScrollabeToolbar = new Class({
 		this.scroll_left.addEvent('mouseenter', this.scroll_toolbar_left);
 		this.scroll_right.addEvent('mouseleave', this.stop_scrolling);
 		this.scroll_left.addEvent('mouseleave', this.stop_scrolling);
+
+		this.resize_toolbar();
+		window.addEvent('resize', this.resize_toolbar);
 	},
 
 	detach: function()
