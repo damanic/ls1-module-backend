@@ -1602,11 +1602,10 @@ function backend_style_forms()
 
 		checkbox.addClass('hidden styled');
 		pseudoCheckbox.insertBefore(checkbox);
+		updatePseudoCheckbox();
 
 		if (this.disabled) {
 			pseudoCheckbox.addClass('disabled');
-		} else {
-			updatePseudoCheckbox();
 		}
 
 		pseudoCheckbox.on('keydown', function (ev) {
